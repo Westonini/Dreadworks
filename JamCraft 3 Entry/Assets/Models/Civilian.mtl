@@ -1,0 +1,38 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+newmtl _defaultMat (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.9599957 0.8506542 0.686546 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl customMaterial6 (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.1799896 0.112357 0.04472569 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl _defaultMat (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.9599957 0.8506542 0.686546 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl customMaterial1 (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0 0 0 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl blueSteel (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.3094887 0 0.5625631 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/blueSteel (Instance) (Instance).png
+
+newmtl customMaterial1 (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0 0 0 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl _defaultMat (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.9599957 0.8506542 0.686546 
+Ks 0.330000 0.330000 0.330000 
+
