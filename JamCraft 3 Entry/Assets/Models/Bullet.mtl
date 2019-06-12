@@ -1,0 +1,8 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+newmtl border (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.7490196 0 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/border (Instance).png
+

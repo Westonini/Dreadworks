@@ -1,0 +1,28 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+newmtl _defaultMat (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.272 0.42 0.272 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl light
+Ka 0.000000 0.000000 0.000000 
+Kd 0.27 0.211 0.139 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl customMaterial1
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0 0 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl blueSteel
+Ka 0.000000 0.000000 0.000000 
+Kd 0.27 0.129 0.129 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/blueSteel.png
+
+newmtl customMaterial6
+Ka 0.000000 0.000000 0.000000 
+Kd 0.39 0.39 0.39 
+Ks 0.330000 0.330000 0.330000 
+

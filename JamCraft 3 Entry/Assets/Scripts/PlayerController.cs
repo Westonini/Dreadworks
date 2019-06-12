@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     public float movementSpeed = 5.0f;
     public float jumpForce = 5.0f;
+    public LayerMask boundariesLayer;
 
     private Vector3 moveDirection;
 
@@ -20,30 +21,29 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Movement
-        moveDirection.Set(Input.GetAxis("Horizontal") * movementSpeed, moveDirection.y, Input.GetAxis("Vertical") * movementSpeed);
-        Vector3.Normalize(moveDirection);
+        moveDirection = new Vector3(Input.GetAxisRaw("Horizontal") * movementSpeed, moveDirection.y, Input.GetAxisRaw("Vertical") * movementSpeed).normalized;
 
         //Jump
-        if (characterController.isGrounded)
+        /*if (characterController.isGrounded)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 moveDirection.y = jumpForce;
             }
-        }
+        }*/
 
         //Gravity
         if (!characterController.isGrounded)
         {
-            moveDirection.y -= 10f * Time.deltaTime;
+            moveDirection.y = moveDirection.y + (Physics.gravity.y * 0.35f);
         }
            
-        characterController.Move(moveDirection * Time.deltaTime);
+        characterController.Move(moveDirection * movementSpeed * Time.deltaTime);
 
         //Move character's y rotation to look at where mouse is pointing
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out RaycastHit hit) && !mouseOverPlayer)
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, boundariesLayer) && !mouseOverPlayer)
         {
             Vector3 lookAtPosition = new Vector3(hit.point.x, transform.position.y, hit.point.z);
             transform.LookAt(lookAtPosition);          
