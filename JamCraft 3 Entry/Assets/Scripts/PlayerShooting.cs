@@ -13,41 +13,40 @@ public class PlayerShooting : MonoBehaviour
     public ParticleSystem muzzleFlashParticles;
 
     private int bulletsInMag = 6;
-    private int bulletsInPouch = 30;
-    private float reloadTime = 1.5f;
-    private bool reloadTimeActive = false;
+    [HideInInspector]
+    public bool reloadTimeActive = false;
 
     public TextMeshProUGUI ammoText;
     public TextMeshPro reloadText;
 
-    // Update is called once per frame
+    private SlotSelection SS;
+    private InventoryANDInteract inv;
+
+    void Awake()
+    {
+        SS = GameObject.FindWithTag("Player").GetComponent<SlotSelection>();
+        inv = GameObject.FindWithTag("Inventory").GetComponent<InventoryANDInteract>();
+    }
+
     void Update()
     {
-        ammoText.text = "Ammo: \n" + bulletsInMag.ToString() + " / " + bulletsInPouch.ToString();
+        ammoText.text = "Ammo: \n" + bulletsInMag.ToString() + " / " + inv.ammo.ToString();
 
         if (Input.GetButtonDown("Fire1") && bulletsInMag != 0 && reloadTimeActive == false) //Shoot Input
         {
             Shoot();
         }
 
-        if (Input.GetButtonDown("Reload") && bulletsInPouch > 0 && bulletsInMag != 6) //Reload Input
-        {
-            reloadTimeActive = true;
-        }
-
-        if (reloadTimeActive == true) // If the player is reloading
+        if (Input.GetButtonDown("Reload") && inv.ammo > 0 && bulletsInMag != 6 && reloadTimeActive == false) //Reload Input
         {
             reloadText.text = "Reloading...";
-            reloadTime -= Time.deltaTime;
+            reloadTimeActive = true;
+            Invoke("Reload", 1.5f);
+        }
 
-            if (reloadTime <= 0)
-            {
-                Reload();
-
-                reloadTimeActive = false;
-                reloadText.text = "";
-                reloadTime = 1.5f;
-            }
+        if (SS.cancelReload == true)
+        {
+            CancelReloadAndMuzzleFlash();
         }
     }
 
@@ -63,15 +62,18 @@ public class PlayerShooting : MonoBehaviour
 
     void Reload()
     {
+        reloadTimeActive = false;
+        reloadText.text = "";
+
         int newBulletsInMag;
         newBulletsInMag = 6 - bulletsInMag;
         bulletsInMag += newBulletsInMag;
-        bulletsInPouch -= newBulletsInMag;
+        inv.ammo -= newBulletsInMag;
         reloadText.text = "";
 
-        if (bulletsInPouch < 0)
+        if (inv.ammo < 0)
         {
-            bulletsInPouch = 0;
+            inv.ammo = 0;
         }
     }
 
@@ -81,5 +83,17 @@ public class PlayerShooting : MonoBehaviour
         muzzleFlashLight.SetActive(true);
         yield return new WaitForSeconds(0.05f);
         muzzleFlashLight.SetActive(false);
+    }
+
+    void CancelReloadAndMuzzleFlash()
+    {
+        CancelInvoke("Reload");
+        StopCoroutine(ToggleMuzzleFlash());
+        muzzleFlashLight.SetActive(false);
+        muzzleFlashParticles.Stop();
+        reloadText.text = "";
+        reloadTimeActive = false;
+        
+        SS.cancelReload = false;
     }
 }

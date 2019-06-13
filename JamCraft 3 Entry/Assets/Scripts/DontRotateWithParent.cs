@@ -5,6 +5,7 @@ using UnityEngine;
 public class DontRotateWithParent : MonoBehaviour
 {
     Quaternion rotation;
+
     void Awake()
     {
         rotation = transform.rotation;
