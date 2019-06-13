@@ -66,7 +66,16 @@ public class PlayerShooting : MonoBehaviour
         reloadText.text = "";
 
         int newBulletsInMag;
-        newBulletsInMag = 6 - bulletsInMag;
+
+        if (inv.ammo <= 6 && bulletsInMag == 0)
+        {
+            newBulletsInMag = inv.ammo;
+        }
+        else
+        {
+            newBulletsInMag = 6 - bulletsInMag;         
+        }
+        
         bulletsInMag += newBulletsInMag;
         inv.ammo -= newBulletsInMag;
         reloadText.text = "";
@@ -77,7 +86,7 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    private IEnumerator ToggleMuzzleFlash()
+    public IEnumerator ToggleMuzzleFlash()
     {
         muzzleFlashParticles.Play();
         muzzleFlashLight.SetActive(true);
@@ -85,15 +94,15 @@ public class PlayerShooting : MonoBehaviour
         muzzleFlashLight.SetActive(false);
     }
 
-    void CancelReloadAndMuzzleFlash()
+    public void CancelReloadAndMuzzleFlash()
     {
-        CancelInvoke("Reload");
+        /*CancelInvoke("Reload");
         StopCoroutine(ToggleMuzzleFlash());
         muzzleFlashLight.SetActive(false);
         muzzleFlashParticles.Stop();
         reloadText.text = "";
         reloadTimeActive = false;
         
-        SS.cancelReload = false;
+        SS.cancelReload = false;*/
     }
 }

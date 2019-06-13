@@ -51,11 +51,7 @@ public class SlotSelection : MonoBehaviour
     {
         if (pistol.activeSelf == true && currentlySelectedItem == "Pistol")
         {
-            PS.ammoText.text = "";
-            PS.reloadText.text = "";
-            PS.muzzleFlashLight.SetActive(false);
-            PS.muzzleFlashParticles.Stop();
-            cancelReload = true;
+            CancelReload();
         }
 
         nothingEquipped.SetActive(false);
@@ -64,5 +60,19 @@ public class SlotSelection : MonoBehaviour
 
         selectedSlot.SetActive(true);
         currentlySelectedItem = selectedSlot.name.ToString();
+    }
+
+    public void CancelReload()
+    {
+        PS.ammoText.text = "";
+        PS.reloadText.text = "";
+        PS.muzzleFlashLight.SetActive(false);
+        PS.muzzleFlashParticles.Stop();
+
+        PS.CancelInvoke("Reload");
+        PS.StopCoroutine(PS.ToggleMuzzleFlash());
+        PS.reloadTimeActive = false;
+
+        //cancelReload = true;
     }
 }
