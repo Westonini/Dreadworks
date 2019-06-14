@@ -68,7 +68,9 @@ public class WorkbenchCrafting : MonoBehaviour
     {
         inventoryContents.text = "Ammo: " + inv.ammo.ToString() + "\n" +
                                  "Machete Parts: " + inv.macheteParts.ToString() + "\n" +
-                                 "Pistol Parts: " + inv.pistolParts.ToString() + "\n";
+                                 "Pistol Parts: " + inv.pistolParts.ToString() + "\n" +
+                                 "Bullet Casings: " + inv.bulletCasings.ToString() + "\n" +
+                                 "Gunpowder: " + inv.gunpowder.ToString() + "\n";
     }
 
     public void ShowCraftingResult(string Result, string item = null)

@@ -5,10 +5,10 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [HideInInspector]
-    public bool canCraftPistol = false, canCraftMachete;
+    public bool canCraftPistol = false, canCraftMachete = false, canCraftAmmo = false;
 
     [HideInInspector]
-    public int pistolParts, macheteParts, ammo;
+    public int pistolParts, macheteParts, ammo, bulletCasings, gunpowder;
 
     // Update is called once per frame
     void Update()
@@ -20,6 +20,10 @@ public class Inventory : MonoBehaviour
         if (macheteParts == 3)
         {
             canCraftMachete = true;
+        }
+        if (bulletCasings >= 6 && gunpowder >= 4)
+        {
+            canCraftAmmo = true;
         }
     }
 }

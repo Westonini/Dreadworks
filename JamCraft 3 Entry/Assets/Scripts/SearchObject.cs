@@ -91,21 +91,34 @@ public class SearchObject : MonoBehaviour
             if (i == "PistolPart")
             {
                 inv.pistolParts += 1;
-                searchResultsText.text += " + Pistol Part \n";
+                searchResultsText.text += " + 1 Pistol Part \n";
             }
             if (i == "MachetePart")
             {
                 inv.macheteParts += 1;
-                searchResultsText.text += " + Machete Part \n";
+                searchResultsText.text += " + 1 Machete Part \n";
             }
             if (i == "Ammo")
             {
-                inv.ammo += IP.ammoToBeGiven;
-                searchResultsText.text += " + Ammo \n";
+                int amountToGive = Random.Range(3, 6);
+                inv.ammo += amountToGive;
+                searchResultsText.text += " + " + amountToGive.ToString() + " Ammo \n";
+            }
+            if (i == "BulletCasings")
+            {
+                int amountToGive = Random.Range(4, 7);
+                inv.bulletCasings += amountToGive;
+                searchResultsText.text += " + " + amountToGive.ToString() + " Bullet Casings \n";
+            }
+            if (i == "Gunpowder")
+            {
+                int amountToGive = Random.Range(2, 4);
+                inv.gunpowder += amountToGive;
+                searchResultsText.text += " + " + amountToGive.ToString() + " Gunpowder \n";
             }
         }
 
-        Invoke("ClearSearchResults", 2.5f);
+        Invoke("ClearSearchResults", 4.5f);
         IP.checkedThisProvider = true;
         
     }

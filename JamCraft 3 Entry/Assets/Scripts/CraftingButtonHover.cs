@@ -32,6 +32,10 @@ public class CraftingButtonHover : MonoBehaviour
         {
             craftingInfo.text = "Crafting Requirements: 4 Pistol Parts";
         }
+        if (buttonName == "AmmoButton")
+        {
+            craftingInfo.text = "Crafting Requirements: 6 Bullet Casings & 4 Gunpowder";
+        }
     }
 
     public void OnMouseExit()
@@ -62,6 +66,20 @@ public class CraftingButtonHover : MonoBehaviour
                 SS.hasPistol = true;
                 inv.pistolParts -= 4;
                 WC.ShowCraftingResult("Success", "Pistol");
+            }
+            else
+            {
+                WC.ShowCraftingResult("Fail");
+            }
+        }
+        if (buttonName == "AmmoButton")
+        {
+            if (inv.canCraftAmmo == true)
+            {
+                inv.bulletCasings -= 6;
+                inv.gunpowder -= 4;
+                inv.ammo += 6;
+                WC.ShowCraftingResult("Success", "6 Ammo");
             }
             else
             {
