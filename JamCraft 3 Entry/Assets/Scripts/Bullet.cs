@@ -8,7 +8,7 @@ public class Bullet: MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == 9) //Boundaries Layer
+        if (collision.gameObject.layer == 9 || collision.gameObject.layer == 12) //Boundaries and Ground Layers
         {
             Destroy(gameObject);
         }

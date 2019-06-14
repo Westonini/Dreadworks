@@ -19,13 +19,11 @@ public class PlayerShooting : MonoBehaviour
     public TextMeshProUGUI ammoText;
     public TextMeshPro reloadText;
 
-    private SlotSelection SS;
-    private InventoryANDInteract inv;
+    private Inventory inv;
 
     void Awake()
     {
-        SS = GameObject.FindWithTag("Player").GetComponent<SlotSelection>();
-        inv = GameObject.FindWithTag("Inventory").GetComponent<InventoryANDInteract>();
+        inv = GameObject.FindWithTag("Inventory").GetComponent<Inventory>();
     }
 
     void Update()
@@ -44,10 +42,6 @@ public class PlayerShooting : MonoBehaviour
             Invoke("Reload", 1.5f);
         }
 
-        if (SS.cancelReload == true)
-        {
-            CancelReloadAndMuzzleFlash();
-        }
     }
 
     void Shoot()
@@ -67,9 +61,23 @@ public class PlayerShooting : MonoBehaviour
 
         int newBulletsInMag;
 
+        //Ammo reloading logic
         if (inv.ammo <= 6 && bulletsInMag == 0)
         {
             newBulletsInMag = inv.ammo;
+        }
+        else if (inv.ammo <= 6 && bulletsInMag != 0)
+        {
+            int newBulletsInMagPlaceholder = 6 - bulletsInMag;
+
+            if (newBulletsInMagPlaceholder > inv.ammo)
+            {
+                newBulletsInMag = inv.ammo;
+            }
+            else
+            {
+                newBulletsInMag = 6 - bulletsInMag;
+            }
         }
         else
         {
@@ -92,17 +100,5 @@ public class PlayerShooting : MonoBehaviour
         muzzleFlashLight.SetActive(true);
         yield return new WaitForSeconds(0.05f);
         muzzleFlashLight.SetActive(false);
-    }
-
-    public void CancelReloadAndMuzzleFlash()
-    {
-        /*CancelInvoke("Reload");
-        StopCoroutine(ToggleMuzzleFlash());
-        muzzleFlashLight.SetActive(false);
-        muzzleFlashParticles.Stop();
-        reloadText.text = "";
-        reloadTimeActive = false;
-        
-        SS.cancelReload = false;*/
     }
 }

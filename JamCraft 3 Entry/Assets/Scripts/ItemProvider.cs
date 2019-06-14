@@ -7,6 +7,7 @@ public class ItemProvider : MonoBehaviour
     public bool willContainPistolParts = false;
     public bool willContainMacheteParts = false;
     public bool willContainAmmo = false;
+    public int ammoToBeGiven;
 
     [HideInInspector]
     public bool checkedThisProvider = false;

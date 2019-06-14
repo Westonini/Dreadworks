@@ -17,6 +17,7 @@ public class ToggleFlashlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Toggle flashlight
         if (Input.GetButtonDown("Flashlight") && flashlightIsOn == true)
         {
             flashlight.SetActive(false);

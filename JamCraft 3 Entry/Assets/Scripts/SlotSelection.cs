@@ -11,7 +11,7 @@ public class SlotSelection : MonoBehaviour
     public GameObject machete;
     public GameObject pistol;
 
-    private string currentlySelectedItem;
+    private string currentlySelectedItem = "NoWeapon";
 
     private PlayerShooting PS;
 
@@ -72,7 +72,5 @@ public class SlotSelection : MonoBehaviour
         PS.CancelInvoke("Reload");
         PS.StopCoroutine(PS.ToggleMuzzleFlash());
         PS.reloadTimeActive = false;
-
-        //cancelReload = true;
     }
 }
