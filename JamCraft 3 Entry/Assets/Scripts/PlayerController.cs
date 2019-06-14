@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour
     CharacterController characterController;
 
     public float movementSpeed = 5.0f;
+    private float resetMovementSpeed;
     public float jumpForce = 5.0f;
+    private float sneakingSpeed;
     public LayerMask boundariesLayer;
 
     private Vector3 moveDirection;
@@ -16,21 +18,24 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        resetMovementSpeed = movementSpeed;
+        sneakingSpeed = movementSpeed / 2;
         characterController = GetComponent<CharacterController>();
     }
     void Update()
     {
         //Movement
         moveDirection = new Vector3(Input.GetAxisRaw("Horizontal") * movementSpeed, moveDirection.y, Input.GetAxisRaw("Vertical") * movementSpeed).normalized;
-
-        //Jump
-        /*if (characterController.isGrounded)
+        
+        //Sneaking
+        if (Input.GetButton("Sneak"))
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                moveDirection.y = jumpForce;
-            }
-        }*/
+            movementSpeed = sneakingSpeed;
+        }
+        if (Input.GetButtonUp("Sneak"))
+        {
+            movementSpeed = resetMovementSpeed;
+        }
 
         //Gravity
         if (!characterController.isGrounded)

@@ -1,0 +1,46 @@
+# Made using Asset Forge (1.3)
+
+:models
+Buildings/balcony[(-1.4, 0.5, -9.69E-08);(0.0, 0.0, 0.0);(0.8, 0.3, 1.0);balcony_5;border+wood]
+Buildings/block_columns[(0, 0, 8.94E-08);(0.0, 90.0, 0.0);(1.0, 0.5, 2.0);block_columns_6;border+border]
+Buildings/roof_flat[(0, 0.5, 8.94E-08);(0.0, 90.0, 0.0);(1.0, 0.7, 2.0);roof_flat_7;border+wood]
+Buildings/balcony[(1.4, 0.5, -0.1);(0.0, 180.0, 0.0);(0.8, 0.3, 0.8);balcony_8;border+wood]
+Castles/wall_straight[(0, 0.6, -0.9);(0.0, 90.0, 0.0);(1.0, 1.0, 1.8);wall_straight_10;blueSteel]
+Castles/debris_bricks[(0.45, 0.5, 0.05);(0.0, 0.0, 0.0);(0.5, 0.5, 0.5);debris_bricks_11;tire]
+Castles/debris_bricks[(-1.1, 0.5, -0.25);(0.0, 90.0, 0.0);(0.3, 0.2, 0.2);debris_bricks_12;tire]
+Castles/debris_bricks[(-1.2, 0.5, -0.05);(0.0, 180.0, 0.0);(0.3, 0.2, 0.2);debris_bricks_13;tire]
+Castles/wall_borderDoorway[(0, 0.5, 0.1);(0.0, 0.0, 0.0);(1.0, 0.4, 0.4);wall_borderDoorway_14;lightStone]
+Castles/detail_chimneyTop[(1.2, 0.2, 0.8);(0.0, 270.0, 0.0);(1.0, 1.0, 1.2);detail_chimneyTop_15;blueSteel]
+Castles/debris_wood[(-0.1, 0.5, 0.05);(0.0, 0.0, 0.0);(0.4, 1.4, 0.5);debris_wood_16;light]
+Castles/debris_wood[(1.15, 0.5, -0.05);(0.0, 90.0, 0.0);(0.5, 1.0, 0.3);debris_wood_17;light]
+City/detail_bricks[(0, 0.6, -1);(0.0, 90.0, 0.0);(1.6, 1.0, 1.0);detail_bricks_18;tire]
+City/detail_bricks[(-0.6, 0.6, -1);(0.0, 90.0, 0.0);(1.6, 0.7, -0.6);detail_bricks_19;tire]
+City/detail_bricks[(0.5, 0.9, -1);(0.0, 90.0, 0.0);(1.6, 0.7, -1.0);detail_bricks_20;tire]
+City/detail_bricks[(-0.25, 0.6, -1);(0.0, 90.0, 0.0);(1.6, 0.3, 0.7);detail_bricks_21;tire]
+City/detail_bricks[(0.65, 0.6, -1);(0.0, 90.0, 0.0);(1.6, 0.5, -0.7);detail_bricks_22;tire]
+City/detail_bricks[(-0.7, 0.9, -1);(0.0, 90.0, 0.0);(1.6, 0.7, -0.6);detail_bricks_23;tire]
+Oriental/lantern[(0.9, 0.6, -0.1);(0.0, 0.0, 0.0);(1.0, 1.0, 1.0);lantern_24;darkStone+roof]
+Primitives/cylinder_donut[(-1.2, 0.5, 0.2);(0.0, 0.0, 0.0);(0.2, 0.2, 0.2);cylinder_donut_25;hilt]
+Swords/guard[(0.25, 0.5, -0.25);(0.0, 0.0, 0.0);(0.3, 1.0, 0.3);guard_26;hilt]
+
+:materials
+border[RGBA(0.940, 0.685, 0.535, 1.000);wood]
+bricks[RGBA(0.886, 0.467, 0.341, 1.000);]
+stone[RGBA(0.667, 0.663, 0.737, 1.000);]
+lightStone[RGBA(0.812, 0.808, 0.855, 1.000);cracked]
+darkStone[RGBA(1.000, 1.000, 1.000, 1.000);metal]
+wood[RGBA(0.878, 0.576, 0.400, 1.000);wood]
+roof[RGBA(0.886, 0.467, 0.341, 1.000);simpleCheckers]
+_defaultMat[RGBA(0.960, 0.851, 0.687, 1.000);]
+hilt[RGBA(1.000, 0.683, 0.059, 1.000);moon]
+customMaterial1[RGBA(0.000, 0.000, 0.000, 1.000);]
+customMaterial2[RGBA(1.000, 1.000, 1.000, 1.000);camoGreen]
+blueSteel[RGBA(0.420, 0.420, 0.420, 1.000);metalPlate]
+tire[RGBA(1.000, 1.000, 1.000, 1.000);brokenCobble]
+light[RGBA(1.000, 1.000, 1.000, 1.000);woodPanel]
+customMaterial6[RGBA(0.180, 0.112, 0.045, 1.000);]
+roofJade[RGBA(0.302, 0.561, 0.431, 1.000);]
+
+:textures
+
+:extra

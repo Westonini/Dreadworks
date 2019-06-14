@@ -1,0 +1,68 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+newmtl border (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.9399463 0.6846717 0.5354853 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/border (Instance).png
+
+newmtl wood (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.882 0.579 0.402 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/wood (Instance) (Instance).png
+
+newmtl border (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.9399463 0.6846717 0.5354853 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/border (Instance) (Instance).png
+
+newmtl blueSteel (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.42 0.42 0.42 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/blueSteel (Instance).png
+
+newmtl tire (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 1 1 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/tire (Instance).png
+
+newmtl lightStone (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.812 0.808 0.855 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/lightStone (Instance).png
+
+newmtl light (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 1 1 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/light (Instance).png
+
+newmtl darkStone (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 1 1 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/darkStone (Instance) (Instance).png
+
+newmtl roof (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.886 0.467 0.341 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/roof (Instance).png
+
+newmtl hilt (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.683 0.059 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/hilt (Instance) (Instance).png
+
+newmtl hilt (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 0.683 0.059 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/hilt (Instance).png
+
