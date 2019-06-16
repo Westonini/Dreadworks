@@ -6,10 +6,14 @@ public class SlotSelection : MonoBehaviour
 {
     public bool hasMachete = false;
     public bool hasPistol = false;
+    public bool hasPipebomb = false;
+    public bool hasGauze = false;
 
     public GameObject nothingEquipped;
     public GameObject machete;
     public GameObject pistol;
+    public GameObject pipebomb;
+    public GameObject gauze;
 
     private string currentlySelectedItem = "NoWeapon";
 
@@ -44,6 +48,26 @@ public class SlotSelection : MonoBehaviour
         {
             ChangeSlots(nothingEquipped);
         }
+
+        //Pipebomb is slot 3
+        if (Input.GetButtonDown("Slot3") && hasPipebomb == true && currentlySelectedItem != "Pipebomb")
+        {
+            ChangeSlots(pipebomb);
+        }
+        else if (Input.GetButtonDown("Slot3") && hasPipebomb == true && currentlySelectedItem == "Pipebomb")
+        {
+            ChangeSlots(nothingEquipped);
+        }
+
+        //Gauze is slot 4
+        if (Input.GetButtonDown("Slot4") && hasGauze == true && currentlySelectedItem != "Gauze")
+        {
+            ChangeSlots(gauze);
+        }
+        else if (Input.GetButtonDown("Slot4") && hasGauze == true && currentlySelectedItem == "Gauze")
+        {
+            ChangeSlots(nothingEquipped);
+        }
     }
 
     //Changes currently equipped item to whatever is passed in.
@@ -57,6 +81,8 @@ public class SlotSelection : MonoBehaviour
         nothingEquipped.SetActive(false);
         machete.SetActive(false);
         pistol.SetActive(false);
+        pipebomb.SetActive(false);
+        gauze.SetActive(false);
 
         selectedSlot.SetActive(true);
         currentlySelectedItem = selectedSlot.name.ToString();

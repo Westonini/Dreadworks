@@ -8,6 +8,7 @@ TagManager:
   - ItemProvider
   - Workbench
   - Interact
+  - Enemy
   layers:
   - Default
   - TransparentFX

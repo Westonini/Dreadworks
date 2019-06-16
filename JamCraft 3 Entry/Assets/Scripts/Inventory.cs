@@ -10,6 +10,16 @@ public class Inventory : MonoBehaviour
     [HideInInspector]
     public int pistolParts, macheteParts, ammo, bulletCasings, gunpowder;
 
+    [HideInInspector]
+    public int pipebombCount = 0, gauzeCount = 0;
+
+    private SlotSelection SS;
+
+    void Awake()
+    {
+        SS = GameObject.FindGameObjectWithTag("Player").GetComponent<SlotSelection>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -24,6 +34,16 @@ public class Inventory : MonoBehaviour
         if (bulletCasings >= 6 && gunpowder >= 4)
         {
             canCraftAmmo = true;
+        }
+
+
+        if (pipebombCount >= 1)
+        {
+            SS.hasPipebomb = true;
+        }
+        if (gauzeCount >= 1)
+        {
+            SS.hasGauze = true;
         }
     }
 }
