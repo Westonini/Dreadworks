@@ -77,13 +77,17 @@ public class WorkbenchCrafting : MonoBehaviour
 
     void UpdateInventoryContentText()
     {
-        inventoryContents.text = "Ammo: " + inv.ammo.ToString() + "\n" +
+        inventoryContents.text = "Pipebombs: " + inv.pipebombCount.ToString() + "\n" +
+                                 "Gauze: " + inv.gauzeCount.ToString() + "\n" +
+                                 "Ammo: " + inv.ammo.ToString() + "\n" +
+                                 "\n" +
                                  "Machete Parts: " + inv.macheteParts.ToString() + "\n" +
                                  "Pistol Parts: " + inv.pistolParts.ToString() + "\n" +
-                                 "Bullet Casings: " + inv.bulletCasings.ToString() + "\n" +
+                                 "\n" +
                                  "Gunpowder: " + inv.gunpowder.ToString() + "\n" +
-                                 "Pipebombs: " + inv.pipebombCount.ToString() + "\n" +
-                                 "Fuses: " + inv.fuses.ToString() + "\n";
+                                 "Bullet Casings: " + inv.bulletCasings.ToString() + "\n" +
+                                 "Fuses: " + inv.fuses.ToString() + "\n" +                               
+                                 "Cloth: " + inv.cloth.ToString() + "\n";
     }
 
     public void ShowCraftingResult(string Result, string item = null)

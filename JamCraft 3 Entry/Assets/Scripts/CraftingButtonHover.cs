@@ -36,9 +36,13 @@ public class CraftingButtonHover : MonoBehaviour
         {
             craftingInfo.text = "Crafting Requirements: 6 Bullet Casings & 3 Gunpowder";
         }
-        if (buttonName == "Pipebomb")
+        if (buttonName == "PipebombButton")
         {
             craftingInfo.text = "Crafting Requirements: 2 Fuses & 2 Gunpowder";
+        }
+        if (buttonName == "GauzeButton")
+        {
+            craftingInfo.text = "Crafting Requirements: 4 Cloth";
         }
     }
 
@@ -98,6 +102,19 @@ public class CraftingButtonHover : MonoBehaviour
                 inv.gunpowder -= 2;
                 inv.pipebombCount += 1;
                 WC.ShowCraftingResult("Success", "Pipebomb");
+            }
+            else
+            {
+                WC.ShowCraftingResult("Fail");
+            }
+        }
+        if (buttonName == "GauzeButton")
+        {
+            if (inv.canCraftGauze == true)
+            {
+                inv.cloth -= 4;
+                inv.gauzeCount += 1;
+                WC.ShowCraftingResult("Success", "Gauze");
             }
             else
             {

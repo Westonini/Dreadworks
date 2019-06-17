@@ -11,6 +11,8 @@ public class ItemProvider : MonoBehaviour
     public bool willContainGunpowder = false;
     public bool willContainPipebomb = false;
     public bool willContainFuses = false;
+    public bool willContainGauze = false;
+    public bool willContainCloth = false;
 
     [Space]
     public bool randomizeDrops = false;
@@ -24,58 +26,131 @@ public class ItemProvider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (willContainPistolParts == true)
+        if (willContainPistolParts)
         {
             itemsToGive.Add("PistolPart");
         }
-        if (willContainMacheteParts == true)
+        if (willContainMacheteParts)
         {
             itemsToGive.Add("MachetePart");
         }
-        if (willContainAmmo == true)
+        if (willContainAmmo)
         {
             itemsToGive.Add("Ammo");
         }
-        if (willContainBulletCasings == true)
+        if (willContainBulletCasings)
         {
             itemsToGive.Add("BulletCasings");
         }
-        if (willContainGunpowder == true)
+        if (willContainGunpowder)
         {
             itemsToGive.Add("Gunpowder");
         }
-        if (willContainPipebomb == true)
+        if (willContainPipebomb)
         {
             itemsToGive.Add("Pipebomb");
         }
-        if (willContainFuses == true)
+        if (willContainFuses)
         {
             itemsToGive.Add("Fuses");
         }
-
-
-        if (randomizeDrops == true)
+        if (willContainGauze)
         {
-            int itemsToDrop = Random.Range(2, 3); //Can drop 2-3 items from randomizer
+            itemsToGive.Add("Gauze");
+        }
+        if (willContainCloth)
+        {
+            itemsToGive.Add("Cloth");
+        }
+
+
+        if (randomizeDrops)
+        {
+            int itemsToDrop = Random.Range(2, 4); //Can drop 2-3 items from randomizer
+
+            bool ammoAlreadyGiven = false;
+            bool bulletCasingsAlreadyGiven = false;
+            bool gunpowderAlreadyGiven = false;
+            bool fusesAlreadyGiven = false;
+            bool clothAlreadyGiven = false;
 
             for (int i = 1; i <= itemsToDrop; i++)
             {
-                int itemToGive = Random.Range(1, 5);
+                int itemToGive = Random.Range(1, 6);
 
                 switch (itemToGive)
                 {
+                    //Ammo Case
                     case 1:
-                        itemsToGive.Add("Ammo");
-                        break;
+                        if (!ammoAlreadyGiven)
+                        {
+                            itemsToGive.Add("Ammo");
+                            ammoAlreadyGiven = true;
+                            break;
+                        }
+                        else
+                        {
+                            i -= 1;
+                            continue;
+                        }
+
+                    //BulletCasings Case
                     case 2:
-                        itemsToGive.Add("BulletCasings");
-                        break;
+                        if (!bulletCasingsAlreadyGiven)
+                        {
+                            itemsToGive.Add("BulletCasings");
+                            bulletCasingsAlreadyGiven = true;
+                            break;
+                        }
+                        else
+                        {
+                            i -= 1;
+                            continue;
+                        }
+
+                    //Gunpowder Case
                     case 3:
-                        itemsToGive.Add("Gunpowder");
-                        break;
+                        if (!gunpowderAlreadyGiven)
+                        {
+                            itemsToGive.Add("Gunpowder");
+                            gunpowderAlreadyGiven = true;
+                            break;
+                        }
+                        else
+                        {
+                            i -= 1;
+                            continue;
+                        }
+
+                    //Fuses Case
                     case 4:
-                        itemsToGive.Add("Fuses");
-                        break;
+                        if (!fusesAlreadyGiven)
+                        {
+                            itemsToGive.Add("Fuses");
+                            fusesAlreadyGiven = true;
+                            break;
+                        }
+                        else
+                        {
+                            i -= 1;
+                            continue;
+                        }
+
+                    //Cloth Case
+                    case 5:
+                        if (!clothAlreadyGiven)
+                        {
+                            itemsToGive.Add("Cloth");
+                            clothAlreadyGiven = true;
+                            break;
+                        }
+                        else
+                        {
+                            i -= 1;
+                            continue;
+                        }
+
+                    //Default Case (If there's an error)
                     default:
                         break;
                 }

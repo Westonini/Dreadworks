@@ -10,7 +10,7 @@ public class SearchObject : MonoBehaviour
     public float searchTime = 3f;
     private float searchTimeReset;
     private bool searching = false;
-    public TextMeshPro searchText;
+    public TextMeshProUGUI searchText;
     public TextMeshProUGUI searchResultsText;
 
     private ItemProvider IP;
@@ -18,6 +18,7 @@ public class SearchObject : MonoBehaviour
     private PlayerShooting PS;
     private PlayerMelee PM;
     private SlotSelection SS;
+    private UseConsumableItem UCI;
 
     private Inventory inv;
 
@@ -141,6 +142,17 @@ public class SearchObject : MonoBehaviour
                 inv.fuses += amountToGive;
                 searchResultsText.text += " + " + amountToGive.ToString() + " Fuses \n";
             }
+            if (i == "Gauze")
+            {
+                inv.gauzeCount += 1;
+                searchResultsText.text += " + 1 Gauze \n";
+            }
+            if (i == "Cloth")
+            {
+                int amountToGive = Random.Range(2, 4);
+                inv.cloth += amountToGive;
+                searchResultsText.text += " + " + amountToGive.ToString() + " Cloth \n";
+            }
         }
 
         Invoke("ClearSearchResults", 4.5f);
@@ -162,10 +174,14 @@ public class SearchObject : MonoBehaviour
         {
             PM.enabled = TF;
         }
+        if (UCI != null)
+        {
+            UCI.enabled = TF;
+        }
         if (SS != null)
         {
             SS.enabled = TF;
-        } 
+        }
     }
 
     public void GetScripts() //get script components
@@ -196,7 +212,16 @@ public class SearchObject : MonoBehaviour
         {
             PM = null;
         }
-          
+        
+        try
+        {
+            UCI = GameObject.Find("Player").GetComponent<UseConsumableItem>();
+        }
+        catch
+        {
+            UCI = null;
+        }
+
         try
         {
             SS = GameObject.FindWithTag("Player").GetComponent<SlotSelection>();

@@ -27,6 +27,7 @@ public class Inventory : MonoBehaviour
         canCraftMachete = (macheteParts >= 3) ? true : false;
         canCraftAmmo = (bulletCasings >= 6 && gunpowder >= 3) ? true : false;
         canCraftPipebomb = (fuses >= 2 && gunpowder >= 2) ? true : false;
+        canCraftGauze = (cloth >= 4) ? true : false;
 
         SS.hasPipebomb = (pipebombCount >= 1) ? true : false;
         SS.hasGauze = (gauzeCount >= 1) ? true : false;

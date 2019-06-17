@@ -17,7 +17,7 @@ public class PlayerShooting : MonoBehaviour
     public bool reloadTimeActive = false;
 
     public TextMeshProUGUI ammoText;
-    public TextMeshPro reloadText;
+    public TextMeshProUGUI reloadText;
 
     private Inventory inv;
 
