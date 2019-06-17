@@ -55,6 +55,17 @@ public class WorkbenchCrafting : MonoBehaviour
             isTouchingWorkBench = true;
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        //If player is touching an ItemProvider object.
+        if (other.gameObject.tag == "Workbench")
+        {
+            if (isTouchingWorkBench == false)
+            {
+                isTouchingWorkBench = true;
+            }          
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         //If player was touching an ItemProvider object.
@@ -70,28 +81,31 @@ public class WorkbenchCrafting : MonoBehaviour
                                  "Machete Parts: " + inv.macheteParts.ToString() + "\n" +
                                  "Pistol Parts: " + inv.pistolParts.ToString() + "\n" +
                                  "Bullet Casings: " + inv.bulletCasings.ToString() + "\n" +
-                                 "Gunpowder: " + inv.gunpowder.ToString() + "\n";
+                                 "Gunpowder: " + inv.gunpowder.ToString() + "\n" +
+                                 "Pipebombs: " + inv.pipebombCount.ToString() + "\n" +
+                                 "Fuses: " + inv.fuses.ToString() + "\n";
     }
 
     public void ShowCraftingResult(string Result, string item = null)
     {
+        CancelInvoke("ClearCraftingResultText");
+
         if (Result == "Success")
         {
             craftingResult.color = new Color32(0, 255, 0, 150);
             craftingResult.text = item + " successfully crafted.";
-            StartCoroutine(ClearCraftingResultText());
+            Invoke("ClearCraftingResultText", 3f);
         }
         else
         {
             craftingResult.color = new Color32(255, 0, 0, 150);
             craftingResult.text = "Crafting requirements not met.";
-            StartCoroutine(ClearCraftingResultText());
+            Invoke("ClearCraftingResultText", 3f);
         }
     }
 
-    private IEnumerator ClearCraftingResultText()
+    private void ClearCraftingResultText()
     {
-        yield return new WaitForSeconds(3f);
         craftingResult.text = "";
     }
 }

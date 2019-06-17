@@ -34,11 +34,11 @@ public class CraftingButtonHover : MonoBehaviour
         }
         if (buttonName == "AmmoButton")
         {
-            craftingInfo.text = "Crafting Requirements: 6 Bullet Casings & 4 Gunpowder";
+            craftingInfo.text = "Crafting Requirements: 6 Bullet Casings & 3 Gunpowder";
         }
         if (buttonName == "Pipebomb")
         {
-            craftingInfo.text = "Crafting Requirements: ...";
+            craftingInfo.text = "Crafting Requirements: 2 Fuses & 2 Gunpowder";
         }
     }
 
@@ -81,7 +81,7 @@ public class CraftingButtonHover : MonoBehaviour
             if (inv.canCraftAmmo == true)
             {
                 inv.bulletCasings -= 6;
-                inv.gunpowder -= 4;
+                inv.gunpowder -= 3;
                 inv.ammo += 6;
                 WC.ShowCraftingResult("Success", "6 Ammo");
             }
@@ -90,11 +90,12 @@ public class CraftingButtonHover : MonoBehaviour
                 WC.ShowCraftingResult("Fail");
             }
         }
-        /*if (buttonName == "PipebombButton")
+        if (buttonName == "PipebombButton")
         {
             if (inv.canCraftPipebomb == true)
             {
-                //Remove materials that were needed to craft
+                inv.fuses -= 2;
+                inv.gunpowder -= 2;
                 inv.pipebombCount += 1;
                 WC.ShowCraftingResult("Success", "Pipebomb");
             }
@@ -102,6 +103,6 @@ public class CraftingButtonHover : MonoBehaviour
             {
                 WC.ShowCraftingResult("Fail");
             }
-        }*/
+        }
     }
 }

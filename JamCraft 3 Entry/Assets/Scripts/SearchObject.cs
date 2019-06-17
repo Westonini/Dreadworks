@@ -7,7 +7,7 @@ public class SearchObject : MonoBehaviour
 {
     private bool isTouchingItemProvider = false;
 
-    public float searchTime = 5f;
+    public float searchTime = 3f;
     private float searchTimeReset;
     private bool searching = false;
     public TextMeshPro searchText;
@@ -60,6 +60,18 @@ public class SearchObject : MonoBehaviour
             isTouchingItemProvider = true;
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        //If player is touching an ItemProvider object.
+        if (other.gameObject.tag == "ItemProvider")
+        {
+            if (!isTouchingItemProvider)
+            {
+                IP = other.gameObject.GetComponent<ItemProvider>();
+                isTouchingItemProvider = true;
+            }
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         //If player was touching an ItemProvider object.
@@ -84,8 +96,10 @@ public class SearchObject : MonoBehaviour
     }
 
     void SearchResults() //Called when the player successfully finishes searching something
-    {      
- 
+    {
+        CancelInvoke("ClearSearchResults");
+        ClearSearchResults();
+
         foreach (string i in IP.itemsToGive)
         {
             if (i == "PistolPart")
@@ -115,6 +129,17 @@ public class SearchObject : MonoBehaviour
                 int amountToGive = Random.Range(2, 4);
                 inv.gunpowder += amountToGive;
                 searchResultsText.text += " + " + amountToGive.ToString() + " Gunpowder \n";
+            }
+            if (i == "Pipebomb")
+            {
+                inv.pipebombCount += 1;
+                searchResultsText.text += " + 1 Pipebomb \n";
+            }
+            if (i == "Fuses")
+            {
+                int amountToGive = Random.Range(1, 3);
+                inv.fuses += amountToGive;
+                searchResultsText.text += " + " + amountToGive.ToString() + " Fuses \n";
             }
         }
 

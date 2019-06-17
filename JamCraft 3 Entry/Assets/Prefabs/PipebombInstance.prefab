@@ -5060,7 +5060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3284f15956a1c4aa9927d5a08b3e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeUntilExplosion: 3
+  timeUntilExplosion: 1.35
   radius: 5
   force: 700
   explosionEffect: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,

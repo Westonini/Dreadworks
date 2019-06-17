@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grenade : MonoBehaviour
 {
-    public float timeUntilExplosion = 3f;
+    public float timeUntilExplosion = 2f;
     private bool hasExploded = false;
 
     public float radius = 5f;
@@ -78,7 +78,7 @@ public class Grenade : MonoBehaviour
 
                 if (healthScript != null)
                 {
-                    DealExplosionDamageToPlayer(nearbyObject, healthScript);
+                    DealExplosionDamage(nearbyObject, healthScript);
                 }               
             }
             if (nearbyObject.tag == "Enemy") //If the object's tag is an enemy, deal some damage depending on the enemy's distance to the explosion.
@@ -87,7 +87,7 @@ public class Grenade : MonoBehaviour
 
                 if (healthScript != null)
                 {
-                    DealExplosionDamageToEnemy(nearbyObject, healthScript);
+                    DealExplosionDamage(nearbyObject, healthScript);
                 }            
             }
         }
@@ -95,7 +95,8 @@ public class Grenade : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void DealExplosionDamageToPlayer(Collider nearbyObject, PlayerHealth healthScript)
+    //Explosion damage calculations for player.
+    void DealExplosionDamage(Collider nearbyObject, PlayerHealth healthScript)
     {
         float distance = Vector3.Distance(transform.position, nearbyObject.transform.position);
 
@@ -117,7 +118,8 @@ public class Grenade : MonoBehaviour
         }
     }
 
-    void DealExplosionDamageToEnemy(Collider nearbyObject, EnemyHealth healthScript)
+    //Explosion damage calculations for enemy.
+    void DealExplosionDamage(Collider nearbyObject, EnemyHealth healthScript)
     {
         float distance = Vector3.Distance(transform.position, nearbyObject.transform.position);
 

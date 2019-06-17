@@ -71,7 +71,7 @@ public class SlotSelection : MonoBehaviour
     }
 
     //Changes currently equipped item to whatever is passed in.
-    void ChangeSlots(GameObject selectedSlot)
+    public void ChangeSlots(GameObject selectedSlot)
     {
         if (pistol.activeSelf == true && currentlySelectedItem == "Pistol")
         {

@@ -9,6 +9,8 @@ public class ItemProvider : MonoBehaviour
     public bool willContainAmmo = false;
     public bool willContainBulletCasings = false;
     public bool willContainGunpowder = false;
+    public bool willContainPipebomb = false;
+    public bool willContainFuses = false;
 
     [Space]
     public bool randomizeDrops = false;
@@ -42,14 +44,23 @@ public class ItemProvider : MonoBehaviour
         {
             itemsToGive.Add("Gunpowder");
         }
+        if (willContainPipebomb == true)
+        {
+            itemsToGive.Add("Pipebomb");
+        }
+        if (willContainFuses == true)
+        {
+            itemsToGive.Add("Fuses");
+        }
+
 
         if (randomizeDrops == true)
         {
-            int itemsToDrop = Random.Range(1, 3); //Can drop 1-2 items from randomizer
+            int itemsToDrop = Random.Range(2, 3); //Can drop 2-3 items from randomizer
 
             for (int i = 1; i <= itemsToDrop; i++)
             {
-                int itemToGive = Random.Range(1, 4);
+                int itemToGive = Random.Range(1, 5);
 
                 switch (itemToGive)
                 {
@@ -61,6 +72,9 @@ public class ItemProvider : MonoBehaviour
                         break;
                     case 3:
                         itemsToGive.Add("Gunpowder");
+                        break;
+                    case 4:
+                        itemsToGive.Add("Fuses");
                         break;
                     default:
                         break;

@@ -5,10 +5,10 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [HideInInspector]
-    public bool canCraftPistol = false, canCraftMachete = false, canCraftAmmo = false;
+    public bool canCraftPistol = false, canCraftMachete = false, canCraftAmmo = false, canCraftPipebomb = false, canCraftGauze = false;
 
     [HideInInspector]
-    public int pistolParts, macheteParts, ammo, bulletCasings, gunpowder;
+    public int pistolParts, macheteParts, ammo, bulletCasings, gunpowder, fuses, cloth;
 
     [HideInInspector]
     public int pipebombCount = 0, gauzeCount = 0;
@@ -23,27 +23,12 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pistolParts == 4)
-        {
-            canCraftPistol = true;
-        }
-        if (macheteParts == 3)
-        {
-            canCraftMachete = true;
-        }
-        if (bulletCasings >= 6 && gunpowder >= 4)
-        {
-            canCraftAmmo = true;
-        }
+        canCraftPistol = (pistolParts >= 4) ? true : false;
+        canCraftMachete = (macheteParts >= 3) ? true : false;
+        canCraftAmmo = (bulletCasings >= 6 && gunpowder >= 3) ? true : false;
+        canCraftPipebomb = (fuses >= 2 && gunpowder >= 2) ? true : false;
 
-
-        if (pipebombCount >= 1)
-        {
-            SS.hasPipebomb = true;
-        }
-        if (gauzeCount >= 1)
-        {
-            SS.hasGauze = true;
-        }
+        SS.hasPipebomb = (pipebombCount >= 1) ? true : false;
+        SS.hasGauze = (gauzeCount >= 1) ? true : false;
     }
 }
