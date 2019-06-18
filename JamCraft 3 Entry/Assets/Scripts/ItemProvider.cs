@@ -13,6 +13,7 @@ public class ItemProvider : MonoBehaviour
     public bool willContainFuses = false;
     public bool willContainGauze = false;
     public bool willContainCloth = false;
+    public bool willContainKeyFragments = false;
 
     [Space]
     public bool randomizeDrops = false;
@@ -61,6 +62,10 @@ public class ItemProvider : MonoBehaviour
         if (willContainCloth)
         {
             itemsToGive.Add("Cloth");
+        }
+        if (willContainKeyFragments)
+        {
+            itemsToGive.Add("KeyFragments");
         }
 
 

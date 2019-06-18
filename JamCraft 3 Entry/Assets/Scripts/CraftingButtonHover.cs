@@ -44,6 +44,10 @@ public class CraftingButtonHover : MonoBehaviour
         {
             craftingInfo.text = "Crafting Requirements: 4 Cloth";
         }
+        if (buttonName == "KeyButton")
+        {
+            craftingInfo.text = "Crafting Requirements: 4 Key Fragments";
+        }
     }
 
     public void OnMouseExit()
@@ -115,6 +119,20 @@ public class CraftingButtonHover : MonoBehaviour
                 inv.cloth -= 4;
                 inv.gauzeCount += 1;
                 WC.ShowCraftingResult("Success", "Gauze");
+            }
+            else
+            {
+                WC.ShowCraftingResult("Fail");
+            }
+        }
+        if (buttonName == "KeyButton")
+        {
+            if (inv.canCraftKey == true)
+            {
+                inv.keyFragments -= 4;
+                inv.canCraftKey = true;
+                inv.keys += 1;
+                WC.ShowCraftingResult("Success", "Key");
             }
             else
             {

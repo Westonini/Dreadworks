@@ -83,11 +83,13 @@ public class WorkbenchCrafting : MonoBehaviour
                                  "\n" +
                                  "Machete Parts: " + inv.macheteParts.ToString() + "\n" +
                                  "Pistol Parts: " + inv.pistolParts.ToString() + "\n" +
+                                 "Key: " + inv.keys.ToString() + "\n" +
                                  "\n" +
                                  "Gunpowder: " + inv.gunpowder.ToString() + "\n" +
                                  "Bullet Casings: " + inv.bulletCasings.ToString() + "\n" +
                                  "Fuses: " + inv.fuses.ToString() + "\n" +                               
-                                 "Cloth: " + inv.cloth.ToString() + "\n";
+                                 "Cloth: " + inv.cloth.ToString() + "\n" +
+                                 "Key Fragments: " + inv.keyFragments.ToString() + "\n";
     }
 
     public void ShowCraftingResult(string Result, string item = null)

@@ -18,6 +18,7 @@ public class SlotSelection : MonoBehaviour
     private string currentlySelectedItem = "NoWeapon";
 
     private PlayerShooting PS;
+    private UseConsumableItem UCI;
 
     [HideInInspector]
     public bool cancelReload;
@@ -25,6 +26,7 @@ public class SlotSelection : MonoBehaviour
     void Awake()
     {
         PS = pistol.GetComponent<PlayerShooting>();
+        UCI = GameObject.FindGameObjectWithTag("Player").GetComponent<UseConsumableItem>();
     }
 
     void Update()
@@ -76,6 +78,10 @@ public class SlotSelection : MonoBehaviour
         if (pistol.activeSelf == true && currentlySelectedItem == "Pistol")
         {
             CancelReload();
+        }
+        if (gauze.activeSelf == true && currentlySelectedItem == "Gauze" && UseConsumableItem.playerIsHealing)
+        {
+            UCI.StopHeal();
         }
 
         nothingEquipped.SetActive(false);

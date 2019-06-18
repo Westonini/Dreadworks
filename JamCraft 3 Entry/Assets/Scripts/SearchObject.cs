@@ -153,6 +153,12 @@ public class SearchObject : MonoBehaviour
                 inv.cloth += amountToGive;
                 searchResultsText.text += " + " + amountToGive.ToString() + " Cloth \n";
             }
+            if (i == "KeyFragments")
+            {
+                int amountToGive = 1;
+                inv.keyFragments += amountToGive;
+                searchResultsText.text += " + " + amountToGive.ToString() + " Key Fragment \n";
+            }
         }
 
         Invoke("ClearSearchResults", 4.5f);
@@ -216,6 +222,10 @@ public class SearchObject : MonoBehaviour
         try
         {
             UCI = GameObject.Find("Player").GetComponent<UseConsumableItem>();
+            if (UCI != null)
+            {
+                UCI.StopHeal();
+            }
         }
         catch
         {

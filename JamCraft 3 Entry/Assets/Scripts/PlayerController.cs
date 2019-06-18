@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour
     CharacterController characterController;
 
     public float movementSpeed = 5.0f;
-    private float resetMovementSpeed;
+    [HideInInspector]
+    public float resetMovementSpeed;
     public float jumpForce = 5.0f;
-    private float sneakingSpeed;
+    [HideInInspector]
+    public float sneakingSpeed;
     public LayerMask groundLayer;
 
     private Vector3 moveDirection;
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
         {
             movementSpeed = sneakingSpeed;
         }
-        if (Input.GetButtonUp("Sneak"))
+        if (Input.GetButtonUp("Sneak") && !UseConsumableItem.playerIsHealing)
         {
             movementSpeed = resetMovementSpeed;
         }

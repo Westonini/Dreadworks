@@ -74,20 +74,15 @@ public class Grenade : MonoBehaviour
 
             if (nearbyObject.tag == "Player") //If the object's tag is a player, deal some damage depending on the player's distance to the explosion.
             {
-                PlayerHealth healthScript = nearbyObject.GetComponent<PlayerHealth>();
-
-                if (healthScript != null)
-                {
-                    DealExplosionDamage(nearbyObject, healthScript);
-                }               
+                DealExplosionDamage(nearbyObject);
             }
             if (nearbyObject.tag == "Enemy") //If the object's tag is an enemy, deal some damage depending on the enemy's distance to the explosion.
             {
-                EnemyHealth healthScript = nearbyObject.GetComponent<EnemyHealth>();
+                EnemyHealth enemyHealthScript = nearbyObject.GetComponent<EnemyHealth>();
 
-                if (healthScript != null)
+                if (enemyHealthScript != null)
                 {
-                    DealExplosionDamage(nearbyObject, healthScript);
+                    DealExplosionDamage(nearbyObject, enemyHealthScript);
                 }            
             }
         }
@@ -95,49 +90,52 @@ public class Grenade : MonoBehaviour
         Destroy(gameObject);
     }
 
-    //Explosion damage calculations for player.
-    void DealExplosionDamage(Collider nearbyObject, PlayerHealth healthScript)
+    //Explosion damage calculations for a character.
+    void DealExplosionDamage(Collider nearbyObject, EnemyHealth healthScript = null)
     {
         float distance = Vector3.Distance(transform.position, nearbyObject.transform.position);
 
-        if (distance > 4.5f)
+        //Player Calculations
+        if (healthScript == null)
         {
-            healthScript.health -= 25;
+            if (distance > 4.5f)
+            {
+                PlayerHealth.health -= 25;
+            }
+            else if (distance <= 4.5f && distance > 4)
+            {
+                PlayerHealth.health -= 50;
+            }
+            else if (distance <= 4 && distance > 3.5f)
+            {
+                PlayerHealth.health -= 75;
+            }
+            else if (distance <= 3.5f)
+            {
+                PlayerHealth.health -= 100;
+            }
         }
-        else if (distance <= 4.5f && distance > 4)
-        {
-            healthScript.health -= 50;
-        }
-        else if (distance <= 4 && distance > 3.5f)
-        {
-            healthScript.health -= 75;
-        }
-        else if (distance <= 3.5f)
-        {
-            healthScript.health -= 100;
-        }
-    }
 
-    //Explosion damage calculations for enemy.
-    void DealExplosionDamage(Collider nearbyObject, EnemyHealth healthScript)
-    {
-        float distance = Vector3.Distance(transform.position, nearbyObject.transform.position);
+        //Enemy calculations
+        else
+        {
+            if (distance > 4.5f)
+            {
+                healthScript.health -= 25;
+            }
+            else if (distance <= 4.5f && distance > 4)
+            {
+                healthScript.health -= 50;
+            }
+            else if (distance <= 4 && distance > 3.5f)
+            {
+                healthScript.health -= 75;
+            }
+            else if (distance <= 3.5f)
+            {
+                healthScript.health -= 100;
+            }
+        }
 
-        if (distance > 4.5f)
-        {
-            healthScript.health -= 25;
-        }
-        else if (distance <= 4.5f && distance > 4)
-        {
-            healthScript.health -= 50;
-        }
-        else if (distance <= 4 && distance > 3.5f)
-        {
-            healthScript.health -= 75;
-        }
-        else if (distance <= 3.5f)
-        {
-            healthScript.health -= 100;
-        }
     }
 }

@@ -6,7 +6,7 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int health = 100;
+    public static int health = 100;
     public TextMeshProUGUI healthWord;
     public TextMeshProUGUI healthText;
 
@@ -17,6 +17,10 @@ public class PlayerHealth : MonoBehaviour
         {
             health = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (health > 100)
+        {
+            health = 100;
         }
 
         //HealthText update
@@ -35,11 +39,6 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             healthText.color = new Color32(255, 0, 0, 50);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            health -= 10;
         }
     }
 }
