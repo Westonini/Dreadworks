@@ -6,9 +6,16 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public static int health = 100;
+    public int maxHealth = 100;
+    [HideInInspector]
+    public static int health;
     public TextMeshProUGUI healthWord;
     public TextMeshProUGUI healthText;
+
+    void Start()
+    {
+        health = maxHealth;
+    }
 
     void Update()
     {
@@ -16,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             health = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);           
         }
         if (health > 100)
         {
