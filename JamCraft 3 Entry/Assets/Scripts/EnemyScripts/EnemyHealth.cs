@@ -5,6 +5,13 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int health = 100;
+    [HideInInspector]
+    public int maxHealth;
+
+    void Start()
+    {
+        maxHealth = health;
+    }
 
     void Update()
     {

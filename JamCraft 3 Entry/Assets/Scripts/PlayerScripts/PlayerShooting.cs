@@ -12,7 +12,8 @@ public class PlayerShooting : MonoBehaviour
     public GameObject muzzleFlashLight;
     public ParticleSystem muzzleFlashParticles;
 
-    private int bulletsInMag = 6;
+    [HideInInspector]
+    public int bulletsInMag = 6;
     [HideInInspector]
     public bool reloadTimeActive = false;
 

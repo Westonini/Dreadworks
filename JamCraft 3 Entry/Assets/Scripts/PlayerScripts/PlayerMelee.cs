@@ -16,6 +16,7 @@ public class PlayerMelee : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetButtonDown("Fire1") && meleeIsOnCooldown == false) //If the player presses fire key and melee isnt on cooldown.
         {
             meleeIsOnCooldown = true;
@@ -33,9 +34,18 @@ public class PlayerMelee : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (Input.GetButtonDown("Fire1") && other.gameObject.tag == "Enemy" && meleeIsOnCooldown == false) //If player presses fire key, an enemy is within the collider, and melee is not on cooldown.
+        {
+            EnemyHealth enemyHealthScript = other.gameObject.GetComponent<EnemyHealth>();
+            enemyHealthScript.health -= damage;
+            meleeIsOnCooldown = true;
+        }
+    }
     void OnTriggerStay(Collider other) 
     {
-        if (Input.GetButtonDown("Fire1") && other.gameObject.layer == 10 && meleeIsOnCooldown == false) //If player presses fire key, an enemy is within the collider, and melee is not on cooldown.
+        if (Input.GetButtonDown("Fire1") && other.gameObject.tag == "Enemy" && meleeIsOnCooldown == false) //If player presses fire key, an enemy is within the collider, and melee is not on cooldown.
         {
             EnemyHealth enemyHealthScript = other.gameObject.GetComponent<EnemyHealth>();
             enemyHealthScript.health -= damage;

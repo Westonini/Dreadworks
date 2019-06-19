@@ -9,6 +9,7 @@ TagManager:
   - Workbench
   - Interact
   - Enemy
+  - Pistol
   layers:
   - Default
   - TransparentFX

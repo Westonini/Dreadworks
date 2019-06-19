@@ -15,7 +15,8 @@ public class SlotSelection : MonoBehaviour
     public GameObject pipebomb;
     public GameObject gauze;
 
-    private string currentlySelectedItem = "NoWeapon";
+    [HideInInspector]
+    public string currentlySelectedItem = "NoWeapon";
 
     private PlayerShooting PS;
     private UseConsumableItem UCI;

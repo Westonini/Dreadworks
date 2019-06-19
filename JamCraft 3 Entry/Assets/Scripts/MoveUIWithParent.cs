@@ -5,11 +5,17 @@ using TMPro;
 
 public class MoveUIWithParent : MonoBehaviour
 {
+    private Camera mainCam;
     public TextMeshProUGUI text;
+
+    void Start()
+    {
+        mainCam = Camera.main;
+    }
 
     void Update()
     {
-        Vector3 namePos = Camera.main.WorldToScreenPoint(this.transform.position);
+        Vector3 namePos = mainCam.WorldToScreenPoint(this.transform.position);
         text.transform.position = namePos;
     }
 }
