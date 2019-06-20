@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class EnemyGunfireDetection : MonoBehaviour
 {
-    EnemyMovement EM;
+    EnemyDetectionMovement EDM;
     PlayerShooting PS;
     SlotSelection SS;
 
     void Awake()
     {      
         SS = GameObject.FindGameObjectWithTag("Player").GetComponent<SlotSelection>();
-        EM = gameObject.GetComponentInParent<EnemyMovement>();
+        EDM = gameObject.GetComponentInParent<EnemyDetectionMovement>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,7 +23,7 @@ public class EnemyGunfireDetection : MonoBehaviour
 
             if (PS.bulletsInMag != 0 && PS.reloadTimeActive == false)
             {
-                EM.isWithinDetectionRange = true;
+                EDM.isWithinDetectionRange = true;
             }          
         }
     }
@@ -36,7 +36,7 @@ public class EnemyGunfireDetection : MonoBehaviour
 
             if (PS.bulletsInMag != 0 && PS.reloadTimeActive == false)
             {
-                EM.isWithinDetectionRange = true;
+                EDM.isWithinDetectionRange = true;
             }
         }
     }

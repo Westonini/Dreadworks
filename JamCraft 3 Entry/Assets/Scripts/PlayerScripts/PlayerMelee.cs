@@ -12,7 +12,7 @@ public class PlayerMelee : MonoBehaviour
 
     BloodSplatter bloodsplatter;
     EnemyHealth EH;
-    EnemyMovement EM;
+    EnemyDetectionMovement EDM;
     Transform enemyLocation;
 
     private bool isWithinMeleeRange = false;
@@ -81,7 +81,7 @@ public class PlayerMelee : MonoBehaviour
         EH.health -= damage;
 
         //Knockback
-        EM.Knockback(knockback, gameObject);
+        EDM.Knockback(knockback, gameObject);
 
         //BloodParticles
         bloodsplatter.DoBloodSplatter(enemyLocation);
@@ -95,7 +95,7 @@ public class PlayerMelee : MonoBehaviour
             isWithinMeleeRange = true;
 
             EH = other.gameObject.GetComponent<EnemyHealth>();
-            EM = other.gameObject.GetComponent<EnemyMovement>();
+            EDM = other.gameObject.GetComponent<EnemyDetectionMovement>();
             enemyLocation = other.gameObject.transform;
         }
         else
@@ -103,7 +103,7 @@ public class PlayerMelee : MonoBehaviour
             isWithinMeleeRange = false;
 
             EH = null;
-            EM = null;
+            EDM = null;
             enemyLocation = null;
         }
 

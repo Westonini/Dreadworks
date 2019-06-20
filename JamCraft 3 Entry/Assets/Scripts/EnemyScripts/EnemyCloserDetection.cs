@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EnemyCloserDetection : MonoBehaviour
 {
-    private EnemyMovement EM;
+    private EnemyDetectionMovement EDM;
 
     void Awake()
     {
-        EM = gameObject.GetComponentInParent<EnemyMovement>();
+        EDM = gameObject.GetComponentInParent<EnemyDetectionMovement>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -16,7 +16,7 @@ public class EnemyCloserDetection : MonoBehaviour
         //If player is touching the closerDetectionRange object.
         if (other.gameObject.tag == "Player")
         {
-            EM.isWithinDetectionRange = true;
+            EDM.isWithinDetectionRange = true;
         }
     }
     private void OnTriggerStay(Collider other)
@@ -24,9 +24,9 @@ public class EnemyCloserDetection : MonoBehaviour
         //If player is touching the closerDetectionRange object.
         if (other.gameObject.tag == "Player")
         {
-            if (EM.isWithinDetectionRange == false)
+            if (EDM.isWithinDetectionRange == false)
             {
-                EM.isWithinDetectionRange = true;
+                EDM.isWithinDetectionRange = true;
             }
         }
     }

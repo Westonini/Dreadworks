@@ -8,7 +8,6 @@ public class Bullet: MonoBehaviour
     public int knockback = 250;
 
     BloodSplatter bloodsplatter;
-    EnemyMovement EM;
 
     void Awake()
     {
@@ -28,8 +27,8 @@ public class Bullet: MonoBehaviour
             enemyHealthScript.health -= damage;
 
             //Knockback
-            EnemyMovement EM = other.gameObject.GetComponent<EnemyMovement>();
-            EM.Knockback(knockback, gameObject, true);
+            EnemyDetectionMovement EDM = other.gameObject.GetComponent<EnemyDetectionMovement>();
+            EDM.Knockback(knockback, gameObject, true);
 
             //BloodParticles
             bloodsplatter.DoBloodSplatter(other.gameObject.transform);
