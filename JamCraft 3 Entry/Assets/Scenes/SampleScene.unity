@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 99419627}
   - component: {fileID: 99419629}
   - component: {fileID: 99419628}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8711,7 +8711,7 @@ GameObject:
   - component: {fileID: 628010921}
   - component: {fileID: 628010919}
   - component: {fileID: 628010920}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: DetectionRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8774,7 +8774,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 628802841}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: ArmsDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9050,8 +9050,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9156177, y: 1.3999999, z: 1.0886593}
-  m_Center: {x: 0.042191148, y: 0.6, z: -0.6093297}
+  m_Size: {x: 0.97815984, y: 1.3999999, z: 1.1243448}
+  m_Center: {x: 0.00999999, y: 0.6, z: -0.68613243}
 --- !u!114 &681283101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9188,7 +9188,7 @@ Transform:
   - {fileID: 281445023}
   - {fileID: 151617380}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &742503578
 GameObject:
@@ -9222,7 +9222,7 @@ Transform:
   - {fileID: 253069189}
   - {fileID: 129770691}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &792245000
 GameObject:
@@ -14818,7 +14818,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: -4.348237e+25, z: 4.5905e-41, w: -4.347868e+25}
+  m_BoundingSphereOverride: {x: 6.98e-43, y: NaN, z: 6.98e-43, w: -4.5626432e+29}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -14831,7 +14831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 886051620}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14871,7 +14871,7 @@ GameObject:
   - component: {fileID: 887161545}
   - component: {fileID: 887161547}
   - component: {fileID: 887161546}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15028,7 +15028,7 @@ GameObject:
   - component: {fileID: 904470052}
   - component: {fileID: 904470051}
   - component: {fileID: 904470053}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: CloserDetectionRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15769,7 +15769,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6.98e-43, y: -1.2787246e-36, z: 6.98e-43, w: 0}
+  m_BoundingSphereOverride: {x: 6.98e-43, y: NaN, z: 6.98e-43, w: -4.5573058e+29}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -16189,7 +16189,7 @@ Transform:
   m_Children:
   - {fileID: 5006512736317289651}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1131004932
 GameObject:
@@ -16345,7 +16345,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1152740183}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: ArmsUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16615,7 +16615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1219219764}
   - component: {fileID: 1219219765}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: GlowingRightEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16708,7 +16708,7 @@ GameObject:
   - component: {fileID: 1221604708}
   - component: {fileID: 1221604707}
   - component: {fileID: 1221604706}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FarDetectionRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17352,7 +17352,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1309460215
 GameObject:
@@ -18241,7 +18241,6 @@ GameObject:
   - component: {fileID: 1445582566}
   - component: {fileID: 1445582568}
   - component: {fileID: 1445582565}
-  - component: {fileID: 1445582561}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -18249,53 +18248,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1445582561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445582560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1445582564}
-          m_MethodName: OnMouseOver
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1445582564}
-          m_MethodName: OnMouseExit
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &1445582562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18339,7 +18291,7 @@ Transform:
   - {fileID: 1903798182}
   - {fileID: 582665581}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1445582564
 MonoBehaviour:
@@ -18360,7 +18312,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 4096
-  mouseOverPlayer: 0
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!143 &1445582565
 CharacterController:
   m_ObjectHideFlags: 0
@@ -18973,7 +18927,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 9.914e-42, y: -1.9424657e-36, z: 6.98e-43, w: 1.95e-43}
+  m_BoundingSphereOverride: {x: 6.98e-43, y: -1.9401698e-36, z: 6.98e-43, w: 8.3e-44}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -19361,7 +19315,7 @@ GameObject:
   - component: {fileID: 1632054342}
   - component: {fileID: 1632054344}
   - component: {fileID: 1632054343}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20980,7 +20934,7 @@ RectTransform:
   m_Children:
   - {fileID: 1091224547}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -21356,7 +21310,7 @@ GameObject:
   - component: {fileID: 1966008466}
   - component: {fileID: 1966008468}
   - component: {fileID: 1966008467}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21835,7 +21789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2029160666}
   - component: {fileID: 2029160667}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21901,7 +21855,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -21912,8 +21866,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.8414496e+30, y: 1.5049436e+25, z: 2.3310385e+20,
-    w: 2.7931066e+20}
+  m_BoundingSphereOverride: {x: 6.98e-43, y: NaN, z: 6.98e-43, w: -4.5573058e+29}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -22504,7 +22457,7 @@ GameObject:
   - component: {fileID: 2072735487}
   - component: {fileID: 2072735489}
   - component: {fileID: 2072735488}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: HitRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22563,7 +22516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2112285258}
   - component: {fileID: 2112285259}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: GlowingLeftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23045,7 +22998,7 @@ GameObject:
   - component: {fileID: 8682660578644873364}
   - component: {fileID: 2096577834382619960}
   - component: {fileID: 6886717095392187570}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: block_default_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23203,13 +23156,60 @@ GameObject:
   - component: {fileID: 5214504049111408681}
   - component: {fileID: 3578264281676009326}
   - component: {fileID: 215185123180584947}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: block_default_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &1973231076645388522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973231076645388523}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1973231076645388523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1973231076645388522}
+  - component: {fileID: 1973231076645388524}
+  m_Layer: 0
+  m_Name: BloodParticleSystem
+  m_TagString: BloodParticleSystem
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1973231076645388524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973231076645388523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ff23d7eae52fe4ebf4f9394cf3c399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodSplatter: {fileID: 202415147814869348, guid: c5a0f16a72536a946baba81222238e60,
+    type: 3}
+  bloodParticles: {fileID: 202415147814869345, guid: c5a0f16a72536a946baba81222238e60,
+    type: 3}
 --- !u!33 &2096577834382619960
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -23237,7 +23237,7 @@ GameObject:
   - component: {fileID: 667145209633986650}
   - component: {fileID: 2838617873056391312}
   - component: {fileID: 2669676807834817445}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: block_default_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23605,7 +23605,7 @@ GameObject:
   - component: {fileID: 2354012786684574766}
   - component: {fileID: 7418709636484331447}
   - component: {fileID: 456562153634545718}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: block_default_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23749,7 +23749,7 @@ GameObject:
   - component: {fileID: 6025597754603862785}
   - component: {fileID: 6352780845201856893}
   - component: {fileID: 3872406234752170351}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: block_default_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23767,7 +23767,7 @@ GameObject:
   - component: {fileID: 5893705755646196188}
   - component: {fileID: 246372060114368235}
   - component: {fileID: 8221450528875999494}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: block_default_13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23799,7 +23799,7 @@ GameObject:
   - component: {fileID: 4427327620857619113}
   - component: {fileID: 172013499832104415}
   - component: {fileID: 1734511699728519707}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: block_default_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23835,7 +23835,7 @@ GameObject:
   - component: {fileID: 6584398393193072210}
   - component: {fileID: 258803902032004672}
   - component: {fileID: 291237544275592002}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: block_default_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24093,7 +24093,7 @@ GameObject:
   - component: {fileID: 3681761847109934013}
   - component: {fileID: 3122824337125273727}
   - component: {fileID: 8689094918975279834}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: block_default_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24157,7 +24157,7 @@ GameObject:
   - component: {fileID: 7011723510453017139}
   - component: {fileID: 3101684122911402861}
   - component: {fileID: 3301299719694450244}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: block_default_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24280,7 +24280,7 @@ GameObject:
   - component: {fileID: 2414025404614215832}
   - component: {fileID: 3804404244876680972}
   - component: {fileID: 120160052753664336}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: block_rounded_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24396,7 +24396,7 @@ GameObject:
   - component: {fileID: 7519003073600138299}
   - component: {fileID: 463035922795529660}
   - component: {fileID: 71692558280931570}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: block_rounded_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}

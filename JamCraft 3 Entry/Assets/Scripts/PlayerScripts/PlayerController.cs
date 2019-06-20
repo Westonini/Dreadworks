@@ -15,12 +15,13 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public static bool playerIsSneaking = false;
     public LayerMask groundLayer;
+    public LayerMask enemyLayer;
 
     private Vector3 moveDirection;
 
-    public bool mouseOverPlayer = false;
-
     private Camera mainCam;
+
+    private bool mouseOverEnemy = false;
 
     void Start()
     {
@@ -57,20 +58,26 @@ public class PlayerController : MonoBehaviour
         //Move character's y rotation to look at where mouse is pointing
         Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, groundLayer) && !mouseOverPlayer)
+        //If character's mouse is on the ground and not on an enemy..
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, groundLayer) && mouseOverEnemy == false)
         {
             Vector3 lookAtPosition = new Vector3(hit.point.x, transform.position.y, hit.point.z);
-            transform.LookAt(lookAtPosition);          
+            transform.LookAt(lookAtPosition);
+  
         }
-    }
 
-    public void OnMouseOver()
-    {
-        mouseOverPlayer = true;
-    }
-
-    public void OnMouseExit()
-    {
-        mouseOverPlayer = false;
+        //If character's mouse is on an enemy...
+        if (Physics.Raycast(ray, out RaycastHit hitEnemy, Mathf.Infinity, enemyLayer))
+        {
+            mouseOverEnemy = true;
+            GameObject hitEnemyObject = hitEnemy.transform.gameObject;
+            Transform enemyLocation = hitEnemyObject.transform;
+            Vector3 lookAtPosition = new Vector3(enemyLocation.transform.position.x, transform.position.y, enemyLocation.transform.position.z);
+            transform.LookAt(lookAtPosition);
+        }
+        else
+        {
+            mouseOverEnemy = false;
+        }
     }
 }

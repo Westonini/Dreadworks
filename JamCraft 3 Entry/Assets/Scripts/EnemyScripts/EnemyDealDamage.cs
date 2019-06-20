@@ -11,6 +11,12 @@ public class EnemyDealDamage : MonoBehaviour
 
     public int knockbackForce = 10;
 
+    BloodSplatter bloodsplatter;
+    void Awake()
+    {
+        bloodsplatter = GameObject.FindWithTag("BloodParticleSystem").GetComponent<BloodSplatter>();
+    }
+
     void Start()
     {
         meleeCooldownReset = meleeCooldown;
@@ -32,28 +38,31 @@ public class EnemyDealDamage : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && meleeIsOnCooldown == false) //If player presses fire key, an enemy is within the collider, and melee is not on cooldown.
+        if (other.gameObject.tag == "Player" && meleeIsOnCooldown == false) //If player is within range of the triggercollider...
         {
-            PlayerHealth.health -= damage;
-            meleeIsOnCooldown = true;
-
-            //Knockback
-            ImpactReceiver IR = other.GetComponent<ImpactReceiver>();
-            Vector3 direction = (other.transform.position - transform.position).normalized;
-            IR.AddImpact(direction, knockbackForce);
+            DealDamage(other);
         }
     }
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Player" && meleeIsOnCooldown == false) //If player presses fire key, an enemy is within the collider, and melee is not on cooldown.
+        if (other.gameObject.tag == "Player" && meleeIsOnCooldown == false) //If player is within range of the triggercollider...
         {
-            PlayerHealth.health -= damage;
-            meleeIsOnCooldown = true;
-
-            //Knockback
-            ImpactReceiver IR = other.GetComponent<ImpactReceiver>();
-            Vector3 direction = (other.transform.position - transform.position).normalized;
-            IR.AddImpact(direction, knockbackForce);
+            DealDamage(other);
         }
+    }
+
+    void DealDamage(Collider other)
+    {
+        //Deal Damage
+        PlayerHealth.health -= damage;
+        meleeIsOnCooldown = true;
+
+        //Knockback
+        ImpactReceiver IR = other.GetComponent<ImpactReceiver>();
+        Vector3 direction = (other.transform.position - transform.position).normalized;
+        IR.AddImpact(direction, knockbackForce);
+
+        //BloodParticles
+        bloodsplatter.DoBloodSplatter(other.gameObject.transform);
     }
 }

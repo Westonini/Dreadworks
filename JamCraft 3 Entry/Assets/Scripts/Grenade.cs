@@ -13,6 +13,12 @@ public class Grenade : MonoBehaviour
     public GameObject explosionEffect;
 
     private float countdown;
+    BloodSplatter bloodsplatter;
+
+    void Awake()
+    {
+        bloodsplatter = GameObject.FindWithTag("BloodParticleSystem").GetComponent<BloodSplatter>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -146,5 +152,7 @@ public class Grenade : MonoBehaviour
             }
         }
 
+        //Blood Particles
+        bloodsplatter.DoBloodSplatter(nearbyObject.gameObject.transform);
     }
 }

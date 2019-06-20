@@ -6,7 +6,14 @@ public class Bullet: MonoBehaviour
 {
     public int damage = 25;
     public int knockback = 250;
-    private EnemyMovement EM;
+
+    BloodSplatter bloodsplatter;
+    EnemyMovement EM;
+
+    void Awake()
+    {
+        bloodsplatter = GameObject.FindWithTag("BloodParticleSystem").GetComponent<BloodSplatter>();
+    }
 
     void OnCollisionEnter(Collision other)
     {
@@ -16,6 +23,7 @@ public class Bullet: MonoBehaviour
         }
         if (other.gameObject.layer == 10) //Enemy Layer
         {
+            //Deal Damage
             EnemyHealth enemyHealthScript = other.gameObject.GetComponent<EnemyHealth>();
             enemyHealthScript.health -= damage;
 
@@ -23,6 +31,10 @@ public class Bullet: MonoBehaviour
             EnemyMovement EM = other.gameObject.GetComponent<EnemyMovement>();
             EM.Knockback(knockback, gameObject, true);
 
+            //BloodParticles
+            bloodsplatter.DoBloodSplatter(other.gameObject.transform);
+
+            //Destroy self (instantiated bullet)
             Destroy(gameObject);
         }
     }

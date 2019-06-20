@@ -10,6 +10,7 @@ TagManager:
   - Interact
   - Enemy
   - Pistol
+  - BloodParticleSystem
   layers:
   - Default
   - TransparentFX
