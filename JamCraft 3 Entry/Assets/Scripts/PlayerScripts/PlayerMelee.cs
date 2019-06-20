@@ -11,6 +11,11 @@ public class PlayerMelee : MonoBehaviour
     private bool meleeIsOnCooldown = false;
 
     BloodSplatter bloodsplatter;
+    EnemyHealth EH;
+    EnemyMovement EM;
+    Transform enemyLocation;
+
+    private bool isWithinMeleeRange = false;
 
     public int knockback = 40;
 
@@ -26,6 +31,10 @@ public class PlayerMelee : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetButtonDown("Fire1") && meleeIsOnCooldown == false && isWithinMeleeRange)
+        {
+            DoMeleeHit();
+        }
         if (Input.GetButtonDown("Fire1") && meleeIsOnCooldown == false) //If the player presses fire key and melee isnt on cooldown.
         {
             meleeIsOnCooldown = true;
@@ -45,30 +54,59 @@ public class PlayerMelee : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (Input.GetButtonDown("Fire1") && other.gameObject.tag == "Enemy" && meleeIsOnCooldown == false) //If player presses fire key, an enemy is within the collider, and melee is not on cooldown.
+        if (other.gameObject.tag == "Enemy") //If player presses fire key, an enemy is within the collider, and melee is not on cooldown.
         {
-            DoMeleeHit(other);
+            GetInfo(other);
         }
     }
     void OnTriggerStay(Collider other) 
     {
-        if (Input.GetButtonDown("Fire1") && other.gameObject.tag == "Enemy" && meleeIsOnCooldown == false) //If player presses fire key, an enemy is within the collider, and melee is not on cooldown.
+        if (other.gameObject.tag == "Enemy") //If player presses fire key, an enemy is within the collider, and melee is not on cooldown.
         {
-            DoMeleeHit(other);
+            GetInfo(other);
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            GetInfo(other, true);
         }
     }
 
-    void DoMeleeHit(Collider other)
+    //Deals damage, knockback, and instantiates blood particles
+    void DoMeleeHit()
     {
         //Deal Damage
-        EnemyHealth enemyHealthScript = other.gameObject.GetComponent<EnemyHealth>();
-        enemyHealthScript.health -= damage;
+        EH.health -= damage;
 
         //Knockback
-        EnemyMovement EM = other.gameObject.GetComponent<EnemyMovement>();
         EM.Knockback(knockback, gameObject);
 
         //BloodParticles
-        bloodsplatter.DoBloodSplatter(other.gameObject.transform);
+        bloodsplatter.DoBloodSplatter(enemyLocation);
+    }
+
+    //Takes info from the enemy while it's within trigger range.
+    void GetInfo(Collider other, bool reset = false)
+    {
+        if (!reset)
+        {
+            isWithinMeleeRange = true;
+
+            EH = other.gameObject.GetComponent<EnemyHealth>();
+            EM = other.gameObject.GetComponent<EnemyMovement>();
+            enemyLocation = other.gameObject.transform;
+        }
+        else
+        {
+            isWithinMeleeRange = false;
+
+            EH = null;
+            EM = null;
+            enemyLocation = null;
+        }
+
+
     }
 }

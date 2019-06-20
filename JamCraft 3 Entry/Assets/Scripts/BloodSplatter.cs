@@ -7,11 +7,17 @@ public class BloodSplatter : MonoBehaviour
     public GameObject bloodSplatter;
     public ParticleSystem bloodParticles;
 
-    public void DoBloodSplatter(Transform splatterposition)
+    public void DoBloodSplatter(Transform positionToInstantiate)
     {
-        splatterposition.position = new Vector3(splatterposition.transform.position.x, splatterposition.transform.position.y + 0.9f, splatterposition.transform.position.z);
+        //Offset the positionToInstantiate on the y-axis
+        Transform splatterPos = transform;
+        splatterPos.position = new Vector3(positionToInstantiate.transform.position.x, positionToInstantiate.transform.position.y + 0.9f, positionToInstantiate.transform.position.z);
+
+        //Create an instance of the bloodSplatter to be instantiated
         GameObject bloodSplatterInstance;
-        bloodSplatterInstance = Instantiate(bloodSplatter, splatterposition.position, splatterposition.rotation) as GameObject;
+        bloodSplatterInstance = Instantiate(bloodSplatter, splatterPos.position, splatterPos.rotation) as GameObject;
+
+        //Destroy the instantiated bloodSplatter after 3.25 seconds
         Destroy(bloodSplatterInstance.gameObject, 3.25f);
     }
 }
