@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerMelee : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerMelee : MonoBehaviour
     public float meleeCooldown = 0.5f;
     private float meleeCooldownReset;
     private bool meleeIsOnCooldown = false;
+
+    public int knockback = 40;
 
     void Start()
     {
@@ -40,6 +43,11 @@ public class PlayerMelee : MonoBehaviour
         {
             EnemyHealth enemyHealthScript = other.gameObject.GetComponent<EnemyHealth>();
             enemyHealthScript.health -= damage;
+
+            //Knockback
+            EnemyMovement EM = other.gameObject.GetComponent<EnemyMovement>();
+            EM.Knockback(knockback, gameObject);
+
             meleeIsOnCooldown = true;
         }
     }
@@ -49,7 +57,13 @@ public class PlayerMelee : MonoBehaviour
         {
             EnemyHealth enemyHealthScript = other.gameObject.GetComponent<EnemyHealth>();
             enemyHealthScript.health -= damage;
+
+            //Knockback
+            EnemyMovement EM = other.gameObject.GetComponent<EnemyMovement>();
+            EM.Knockback(knockback, gameObject);
+
             meleeIsOnCooldown = true;
+
         }
     }
 }

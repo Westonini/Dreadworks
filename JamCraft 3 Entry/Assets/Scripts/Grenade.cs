@@ -40,6 +40,7 @@ public class Grenade : MonoBehaviour
 
         foreach (Collider nearbyObject in colliders)
         {
+            EnemyMovement EM = nearbyObject.gameObject.GetComponent<EnemyMovement>();
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
             ImpactReceiver IR = nearbyObject.GetComponent<ImpactReceiver>();
 
@@ -49,10 +50,18 @@ public class Grenade : MonoBehaviour
 
                 if (distance <= 4)
                 {
+                    if (EM != null)
+                    {
+                        StartCoroutine(EM.ChangeIsKinematic());
+                    }                 
                     rb.AddExplosionForce(force, transform.position, radius);
                 }
                 else
                 {
+                    if (EM != null)
+                    {
+                        StartCoroutine(EM.ChangeIsKinematic());
+                    }
                     rb.AddExplosionForce((force / 1.5f), transform.position, radius);
                 }             
             }

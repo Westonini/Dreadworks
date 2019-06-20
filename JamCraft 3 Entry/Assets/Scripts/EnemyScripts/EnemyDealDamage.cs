@@ -9,6 +9,8 @@ public class EnemyDealDamage : MonoBehaviour
     private float meleeCooldownReset;
     private bool meleeIsOnCooldown = false;
 
+    public int knockbackForce = 10;
+
     void Start()
     {
         meleeCooldownReset = meleeCooldown;
@@ -34,6 +36,11 @@ public class EnemyDealDamage : MonoBehaviour
         {
             PlayerHealth.health -= damage;
             meleeIsOnCooldown = true;
+
+            //Knockback
+            ImpactReceiver IR = other.GetComponent<ImpactReceiver>();
+            Vector3 direction = (other.transform.position - transform.position).normalized;
+            IR.AddImpact(direction, knockbackForce);
         }
     }
     void OnTriggerStay(Collider other)
@@ -42,6 +49,11 @@ public class EnemyDealDamage : MonoBehaviour
         {
             PlayerHealth.health -= damage;
             meleeIsOnCooldown = true;
+
+            //Knockback
+            ImpactReceiver IR = other.GetComponent<ImpactReceiver>();
+            Vector3 direction = (other.transform.position - transform.position).normalized;
+            IR.AddImpact(direction, knockbackForce);
         }
     }
 }

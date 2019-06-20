@@ -49,7 +49,8 @@ public class PlayerShooting : MonoBehaviour
     {
         Rigidbody bulletInstance;
         bulletInstance = Instantiate(bulletPrefab, shootPosition.position, shootPosition.rotation) as Rigidbody;
-        bulletInstance.AddForce(shootPosition.forward * 1500);
+        bulletInstance.velocity = shootPosition.forward * 50;
+        //bulletInstance.AddForce(shootPosition.forward * 1500);
         Destroy(bulletInstance.gameObject, 0.5f);
         StartCoroutine(ToggleMuzzleFlash());
         bulletsInMag -= 1;

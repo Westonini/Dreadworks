@@ -14,6 +14,8 @@ public class EnemyMovement : MonoBehaviour
     [HideInInspector]
     public bool isWithinDetectionRange = false;
 
+    Coroutine ChangeKinematicCoroutine;
+
     EnemyHealth EH;
 
     void Awake()
@@ -56,5 +58,42 @@ public class EnemyMovement : MonoBehaviour
             armsDown.SetActive(true);
             armsUp.SetActive(false);
         }
+    }
+
+    //Called in other scripts for when the enemy needs to get knocked back.
+    public void Knockback(int knockback, GameObject hitby, bool reverseKnockbackDirection = false)
+    {
+        if (ChangeKinematicCoroutine != null)
+        {
+            StopCoroutine(ChangeKinematicCoroutine);
+        }
+
+        ChangeKinematicCoroutine = StartCoroutine(ChangeIsKinematic());
+        gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
+
+        Vector3 direction;
+        if (!reverseKnockbackDirection)
+        {
+            direction = (transform.position - hitby.transform.position).normalized;
+        }
+        else
+        {
+            direction = (hitby.transform.position - transform.position).normalized;
+        }
+        
+        GetComponent<Rigidbody>().AddForce(direction * knockback);
+    }
+
+    public IEnumerator ChangeIsKinematic()
+    {
+        bool isKinematic = gameObject.GetComponent<Rigidbody>().isKinematic = false;
+
+        yield return new WaitForSeconds(0.01f);
+
+        if (gameObject != null)
+        {
+            isKinematic = true;
+        }
+
     }
 }

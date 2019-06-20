@@ -23,7 +23,7 @@ public class EnemyGunfireDetection : MonoBehaviour
 
             if (PS.bulletsInMag != 0 && PS.reloadTimeActive == false)
             {
-                EM.DetectedPlayer();
+                EM.isWithinDetectionRange = true;
             }          
         }
     }
@@ -36,7 +36,7 @@ public class EnemyGunfireDetection : MonoBehaviour
 
             if (PS.bulletsInMag != 0 && PS.reloadTimeActive == false)
             {
-                EM.DetectedPlayer();
+                EM.isWithinDetectionRange = true;
             }
         }
     }
