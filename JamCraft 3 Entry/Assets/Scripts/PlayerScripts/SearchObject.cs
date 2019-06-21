@@ -249,7 +249,7 @@ public class SearchObject : MonoBehaviour
     void StartSearch() //Begin the search
     {
         searchTime -= Time.deltaTime;
-        searchText.text = "Searching...\n" + "Press E again to cancel";
+        searchText.text = "Searching...\n" + "Press SPACE to cancel";
 
         if (gotTheScripts == false)
         {

@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection;
 
     private Camera mainCam;
+    
 
     private bool mouseOverEnemy = false;
 
@@ -33,8 +34,24 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Movement
-        moveDirection = new Vector3(Input.GetAxisRaw("Horizontal") * movementSpeed, moveDirection.y, Input.GetAxisRaw("Vertical") * movementSpeed).normalized;
-        
+        if (ChangeCameraAngle.angleBeingSwitchedTo == "0")
+        {
+            moveDirection = new Vector3(Input.GetAxisRaw("Horizontal") * movementSpeed, moveDirection.y, Input.GetAxisRaw("Vertical") * movementSpeed).normalized;
+        }
+        else if (ChangeCameraAngle.angleBeingSwitchedTo == "90")
+        {
+            moveDirection = new Vector3(Input.GetAxisRaw("Vertical") * movementSpeed, moveDirection.y, -Input.GetAxisRaw("Horizontal") * movementSpeed).normalized;
+        }
+        else if (ChangeCameraAngle.angleBeingSwitchedTo == "180")
+        {
+            moveDirection = new Vector3(-Input.GetAxisRaw("Horizontal") * movementSpeed, moveDirection.y, -Input.GetAxisRaw("Vertical") * movementSpeed).normalized;
+        }
+        else if (ChangeCameraAngle.angleBeingSwitchedTo == "270")
+        {
+            moveDirection = new Vector3(-Input.GetAxisRaw("Vertical") * movementSpeed, moveDirection.y, Input.GetAxisRaw("Horizontal") * movementSpeed).normalized;
+        }
+
+
         //Sneaking
         if (Input.GetButton("Sneak"))
         {

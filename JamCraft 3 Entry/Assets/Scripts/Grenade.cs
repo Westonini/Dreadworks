@@ -54,11 +54,13 @@ public class Grenade : MonoBehaviour
             {
                 float distance = Vector3.Distance(transform.position, nearbyObject.transform.position);
 
+                //If within a 4 range distance of the pipebomb
                 if (distance <= 4)
                 {
                     if (EDM != null)
                     {
                         StartCoroutine(EDM.ChangeIsKinematic());
+                        EDM.isWithinDetectionRange = true;
                     }                 
                     rb.AddExplosionForce(force, transform.position, radius);
                 }
@@ -67,15 +69,18 @@ public class Grenade : MonoBehaviour
                     if (EDM != null)
                     {
                         StartCoroutine(EDM.ChangeIsKinematic());
+                        EDM.isWithinDetectionRange = true;
                     }
                     rb.AddExplosionForce((force / 1.5f), transform.position, radius);
                 }             
             }
+
             if (IR != null) //Add explosion force to CharacterController objects
             {
                 Vector3 dir = nearbyObject.transform.position - transform.position;
                 float distance = Vector3.Distance(transform.position, nearbyObject.transform.position);
 
+                //If within a 4 range distance of the pipebomb
                 if (distance <= 4)
                 {
                     IR.AddImpact(dir, (force / 8));
@@ -85,7 +90,6 @@ public class Grenade : MonoBehaviour
                     IR.AddImpact(dir, (force / 10));
                 }
             }
-
 
             if (nearbyObject.tag == "Player") //If the object's tag is a player, deal some damage depending on the player's distance to the explosion.
             {
