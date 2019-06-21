@@ -46,7 +46,7 @@ public class SearchObject : MonoBehaviour
                 searching = true;
             }
         }
-        else if (isTouchingItemProvider == true && (Input.GetButtonDown("Interact") || Input.GetKeyDown(KeyCode.Escape)) && searching == true) //Cancel search
+        else if (isTouchingItemProvider == true && Input.GetButtonDown("Interact") && searching == true) //Cancel search
         {
             EndSearch(true);
         }

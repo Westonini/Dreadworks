@@ -28,7 +28,7 @@ public class WorkbenchCrafting : MonoBehaviour
             crafting = true;
             craftingMenu.SetActive(true);
         }
-        else if (isTouchingWorkBench == true && (Input.GetButtonDown("Interact") || Input.GetKeyDown(KeyCode.Escape)) && crafting == true) //Close crafting window
+        else if (isTouchingWorkBench == true && Input.GetButtonDown("Interact") && crafting == true) //Close crafting window
         {
             crafting = false;
             craftingMenu.SetActive(false);
