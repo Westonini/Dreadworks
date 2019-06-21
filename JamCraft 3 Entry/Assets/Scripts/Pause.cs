@@ -8,14 +8,20 @@ public class Pause : MonoBehaviour
     private bool isPaused = false;
     private bool gameNotInFocus = false;
     private bool flashlightWasOn = false;
+    private bool workbenchWasOn = false;
+
     public GameObject pauseMenu;
-    SearchObject SO;
+    public GameObject workBenchMenu;
+
+    EnableOrDisableScripts EODS;
     ToggleFlashlight TF;
+    SearchObject SO;
 
     void Awake()
     {
-        SO = GameObject.FindGameObjectWithTag("Interact").GetComponent<SearchObject>();
         TF = GameObject.FindGameObjectWithTag("Player").GetComponent<ToggleFlashlight>();
+        EODS = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<EnableOrDisableScripts>();
+        SO = GameObject.FindGameObjectWithTag("Interact").GetComponent<SearchObject>();
     }
 
     void Update()
@@ -41,31 +47,53 @@ public class Pause : MonoBehaviour
     private void PauseGame()
     {
         pauseMenu.SetActive(true);
-        SO.GetScripts();
-        SO.EnableDisableScripts(false);
+        EODS.GetScripts();
+        EODS.EnableDisableScripts(false);
         flashlightWasOn = TF.flashlightIsOn;
         TF.ToggleFlashLight(false);
         TF.enabled = false;
         Time.timeScale = 0;
         isPaused = true;
+
+        if (workBenchMenu.activeSelf)
+        {
+            workbenchWasOn = true;
+            workBenchMenu.SetActive(false);
+        }
     }
 
     private void UnPauseGame()
     {
-        pauseMenu.SetActive(false);
-        SO.EnableDisableScripts(true);
+        pauseMenu.SetActive(false);       
         TF.enabled = true;
         if (flashlightWasOn)
         {
             TF.ToggleFlashLight(true);
         }
+        if (workbenchWasOn)
+        {
+            workBenchMenu.SetActive(true);
+            workbenchWasOn = false;
+        }
+        if (SO.searching)
+        {
+            EODS.EnableDisableScripts(false);
+        }
+        else
+        {
+            EODS.EnableDisableScripts(true);
+        }
         Time.timeScale = 1;
         isPaused = false;
     }
 
+    public void ResumeGame()
+    {
+        UnPauseGame();
+    }
     public void GoToMainMenu()
     {
-       SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);
     }
     public void QuitGame()
     {

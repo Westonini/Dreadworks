@@ -13,12 +13,13 @@ public class WorkbenchCrafting : MonoBehaviour
     public TextMeshProUGUI craftingResult;
 
     private Inventory inv;
-    private SearchObject SO;
+    private EnableOrDisableScripts EODS;
 
     void Awake()
     {
-        SO = GameObject.FindGameObjectWithTag("Interact").GetComponent<SearchObject>();
+
         inv = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
+        EODS = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<EnableOrDisableScripts>();
     }
 
     void Update()
@@ -37,13 +38,13 @@ public class WorkbenchCrafting : MonoBehaviour
         //If player is crafting, freeze player.
         if (crafting == true)
         {
-            SO.GetScripts();
-            SO.EnableDisableScripts(false);
+            EODS.GetScripts();
+            EODS.EnableDisableScripts(false);
             UpdateInventoryContentText();
         }
         else if (crafting == false && isTouchingWorkBench == true)
         {
-            SO.EnableDisableScripts(true);
+            EODS.EnableDisableScripts(true);
         }
     }
 
