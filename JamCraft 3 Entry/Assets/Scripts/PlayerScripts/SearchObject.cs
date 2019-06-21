@@ -24,6 +24,9 @@ public class SearchObject : MonoBehaviour
 
     private bool gotTheScripts = false;
 
+    private GameObject closedObject;
+    private GameObject openedObject;
+
     void Awake()
     {
         SS = GameObject.FindGameObjectWithTag("Player").GetComponent<SlotSelection>();
@@ -57,6 +60,17 @@ public class SearchObject : MonoBehaviour
         //If player is touching an ItemProvider object.
         if (other.gameObject.tag == "ItemProvider")
         {
+            for (int i = 0; i < other.transform.childCount; i++)
+            {
+                if (other.transform.GetChild(i).transform.name == "Closed")
+                {
+                    closedObject = other.transform.GetChild(i).transform.gameObject;
+                }
+                if (other.transform.GetChild(i).transform.name == "Open")
+                {
+                    openedObject = other.transform.GetChild(i).transform.gameObject;
+                }
+            }
             IP = other.gameObject.GetComponent<ItemProvider>();
             isTouchingItemProvider = true;
         }
@@ -68,6 +82,17 @@ public class SearchObject : MonoBehaviour
         {
             if (!isTouchingItemProvider)
             {
+                for (int i = 0; i <= other.transform.childCount; i++)
+                {
+                    if (other.transform.GetChild(i).transform.name == "Closed")
+                    {
+                        closedObject = other.transform.GetChild(i).transform.gameObject;
+                    }
+                    if (other.transform.GetChild(i).transform.name == "Open")
+                    {
+                        openedObject = other.transform.GetChild(i).transform.gameObject;
+                    }
+                }
                 IP = other.gameObject.GetComponent<ItemProvider>();
                 isTouchingItemProvider = true;
             }
@@ -78,6 +103,8 @@ public class SearchObject : MonoBehaviour
         //If player was touching an ItemProvider object.
         if (other.gameObject.tag == "ItemProvider")
         {
+            closedObject = null;
+            openedObject = null;
             IP = null;
             isTouchingItemProvider = false;
         }
@@ -250,6 +277,8 @@ public class SearchObject : MonoBehaviour
     {
         searchTime -= Time.deltaTime;
         searchText.text = "Searching...\n" + "Press SPACE to cancel";
+        closedObject.SetActive(false);
+        openedObject.SetActive(true);
 
         if (gotTheScripts == false)
         {
@@ -270,7 +299,12 @@ public class SearchObject : MonoBehaviour
         if (EndedEarly == false)
         {
             SearchResults();
-        }     
+        }
+        else
+        {
+            closedObject.SetActive(true);
+            openedObject.SetActive(false);
+        }
     }
 
     void ClearSearchResults()
