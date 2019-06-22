@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     private Camera mainCam;
 
+    private Animator playerAnim;
+
     [HideInInspector]
     public bool walkingSoundPlaying = false, sneakingSoundPlaying = false;
 
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
         resetMovementSpeed = movementSpeed;
         sneakingSpeed = movementSpeed / 2;
         characterController = GetComponent<CharacterController>();
+        playerAnim = GetComponent<Animator>();
     }
     void Update()
     {
@@ -59,6 +62,8 @@ public class PlayerController : MonoBehaviour
             {
                 if (!sneakingSoundPlaying)
                 {
+                    playerAnim.SetBool("isSneaking", true);
+                    playerAnim.SetBool("isWalking", false);
                     FindObjectOfType<AudioManager>().Stop("Walking");
                     FindObjectOfType<AudioManager>().Play("Sneaking");
                     sneakingSoundPlaying = true;
@@ -69,6 +74,8 @@ public class PlayerController : MonoBehaviour
             {
                 if (!walkingSoundPlaying)
                 {
+                    playerAnim.SetBool("isSneaking", false);
+                    playerAnim.SetBool("isWalking", true);
                     FindObjectOfType<AudioManager>().Stop("Sneaking");
                     FindObjectOfType<AudioManager>().Play("Walking");
                     walkingSoundPlaying = true;
@@ -79,6 +86,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            playerAnim.SetBool("isSneaking", false);
+            playerAnim.SetBool("isWalking", false);
             FindObjectOfType<AudioManager>().Stop("Walking");
             FindObjectOfType<AudioManager>().Stop("Sneaking");
             walkingSoundPlaying = false;

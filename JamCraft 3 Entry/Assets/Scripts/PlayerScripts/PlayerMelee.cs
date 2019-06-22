@@ -21,9 +21,12 @@ public class PlayerMelee : MonoBehaviour
 
     public int knockback = 40;
 
+    private Animator macheteAnim;
+
     void Awake()
     {
         bloodsplatter = GameObject.FindWithTag("BloodParticleSystem").GetComponent<BloodSplatter>();
+        macheteAnim = GetComponent<Animator>();
     }
 
     void Start()
@@ -43,6 +46,9 @@ public class PlayerMelee : MonoBehaviour
 
             //SoundEffect
             FindObjectOfType<AudioManager>().Play("MeleeSwing");
+
+            //Animation
+            macheteAnim.SetBool("isAttacking", true);
         }
 
         if (meleeIsOnCooldown == true) //melee cooldown timer so it's not spammable.
@@ -51,6 +57,7 @@ public class PlayerMelee : MonoBehaviour
 
             if (meleeCooldown <= 0)
             {
+                macheteAnim.SetBool("isAttacking", false);
                 meleeIsOnCooldown = false;
                 meleeCooldown = meleeCooldownReset;
             }
