@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public static int health;
     public TextMeshProUGUI healthWord;
     public TextMeshProUGUI healthText;
+    public GameObject injuredPanel;
 
     void Start()
     {
@@ -46,6 +47,15 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             healthText.color = new Color32(255, 0, 0, 50);
+        }
+
+        if (health < 35 && !injuredPanel.activeSelf)
+        {
+            injuredPanel.SetActive(true);
+        }
+        else if (health >= 35)
+        {
+            injuredPanel.SetActive(false);
         }
     }
 }

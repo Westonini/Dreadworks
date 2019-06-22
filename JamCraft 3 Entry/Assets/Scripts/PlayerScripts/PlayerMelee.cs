@@ -9,11 +9,13 @@ public class PlayerMelee : MonoBehaviour
     public float meleeCooldown = 0.5f;
     private float meleeCooldownReset;
     private bool meleeIsOnCooldown = false;
+    private AudioSource[] enemyHurtSound;
 
     BloodSplatter bloodsplatter;
     EnemyHealth EH;
     EnemyDetectionMovement EDM;
     Transform enemyLocation;
+    GameObject enemy;
 
     private bool isWithinMeleeRange = false;
 
@@ -31,13 +33,16 @@ public class PlayerMelee : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && meleeIsOnCooldown == false && isWithinMeleeRange)
+        if (Input.GetButtonDown("Fire1") && !meleeIsOnCooldown && isWithinMeleeRange && enemy != null) //Attack if melee isnt on cooldown and there's an enemy within range.
         {
             DoMeleeHit();
         }
-        if (Input.GetButtonDown("Fire1") && meleeIsOnCooldown == false) //If the player presses fire key and melee isnt on cooldown.
+        if (Input.GetButtonDown("Fire1") && !meleeIsOnCooldown) //If the player presses fire key and melee isnt on cooldown.
         {
             meleeIsOnCooldown = true;
+
+            //SoundEffect
+            FindObjectOfType<AudioManager>().Play("MeleeSwing");
         }
 
         if (meleeIsOnCooldown == true) //melee cooldown timer so it's not spammable.
@@ -49,6 +54,12 @@ public class PlayerMelee : MonoBehaviour
                 meleeIsOnCooldown = false;
                 meleeCooldown = meleeCooldownReset;
             }
+        }
+
+        //If the enemy is dead, call SetInfoToNull()
+        if (enemy == null)
+        {
+            SetInfoToNull();
         }
     }
 
@@ -85,6 +96,9 @@ public class PlayerMelee : MonoBehaviour
 
         //BloodParticles
         bloodsplatter.DoBloodSplatter(enemyLocation);
+
+        //Hurt Sound (has to be the second audio source in the enemy's inspector).
+        enemyHurtSound[1].Play();
     }
 
     //Takes info from the enemy while it's within trigger range.
@@ -94,19 +108,27 @@ public class PlayerMelee : MonoBehaviour
         {
             isWithinMeleeRange = true;
 
-            EH = other.gameObject.GetComponent<EnemyHealth>();
-            EDM = other.gameObject.GetComponent<EnemyDetectionMovement>();
-            enemyLocation = other.gameObject.transform;
+            enemy = other.gameObject;
+            EH = enemy.GetComponent<EnemyHealth>();
+            EDM = enemy.GetComponent<EnemyDetectionMovement>();
+            enemyLocation = enemy.transform;
+            enemyHurtSound = enemy.GetComponents<AudioSource>();
         }
         else
         {
-            isWithinMeleeRange = false;
-
-            EH = null;
-            EDM = null;
-            enemyLocation = null;
+            SetInfoToNull();
         }
+    }
 
+    //Used when the enemy leaves the melee trigger area or if the enemy is dead.
+    void SetInfoToNull()
+    {
+        isWithinMeleeRange = false;
 
+        enemy = null;
+        EH = null;
+        EDM = null;
+        enemyLocation = null;
+        enemyHurtSound = null;
     }
 }

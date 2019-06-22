@@ -93,6 +93,7 @@ public class Pause : MonoBehaviour
     }
     public void GoToMainMenu()
     {
+        UnPauseGame();
         SceneManager.LoadScene(0);
     }
     public void QuitGame()

@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class EnemyDetectionMovement : MonoBehaviour
 {
     public GameObject player;
-    private NavMeshAgent agent;
+    [HideInInspector]
+    public NavMeshAgent agent;
 
     public GameObject armsDown;
     public GameObject armsUp;

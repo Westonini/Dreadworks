@@ -17,6 +17,10 @@ public class PlayerShooting : MonoBehaviour
     [HideInInspector]
     public bool reloadTimeActive = false;
 
+    public float shootCooldown = 0.25f;
+    private float shootCooldownReset;
+    private bool shootIsOnCooldown = false;
+
     public TextMeshProUGUI ammoText;
     public TextMeshProUGUI reloadText;
 
@@ -27,26 +31,53 @@ public class PlayerShooting : MonoBehaviour
         inv = GameObject.FindWithTag("Inventory").GetComponent<Inventory>();
     }
 
+    void Start()
+    {
+        shootCooldownReset = shootCooldown;
+    }
+
     void Update()
     {
         ammoText.text = "Ammo: \n" + bulletsInMag.ToString() + " / " + inv.ammo.ToString();
 
-        if (Input.GetButtonDown("Fire1") && bulletsInMag != 0 && reloadTimeActive == false) //Shoot Input
+        if (Input.GetButtonDown("Fire1") && bulletsInMag != 0 && !reloadTimeActive && !shootIsOnCooldown) //Shoot Input
         {
             Shoot();
         }
+        else if (Input.GetButtonDown("Fire1") && bulletsInMag == 0 && !reloadTimeActive && !shootIsOnCooldown) //Play empty clip sound
+        {
+            FindObjectOfType<AudioManager>().Play("EmptyClip");
+        }
 
-        if (Input.GetButtonDown("Reload") && inv.ammo > 0 && bulletsInMag != 6 && reloadTimeActive == false) //Reload Input
+
+        if (Input.GetButtonDown("Reload") && inv.ammo > 0 && bulletsInMag != 6 && !reloadTimeActive) //Reload Input
         {
             reloadText.text = "Reloading...";
             reloadTimeActive = true;
-            Invoke("Reload", 1.5f);
+            FindObjectOfType<AudioManager>().Play("Reloading");
+            Invoke("Reload", 1.75f);
         }
 
+        if (Input.GetButtonDown("Fire1") && !shootIsOnCooldown) //If the player presses fire key and shoot isnt on cooldown.
+        {
+            shootIsOnCooldown = true;
+        }
+
+        if (shootIsOnCooldown == true) //shoot cooldown timer so it's not spammable.
+        {
+            shootCooldown -= Time.deltaTime;
+
+            if (shootCooldown <= 0)
+            {
+                shootIsOnCooldown = false;
+                shootCooldown = shootCooldownReset;
+            }
+        }
     }
 
     void Shoot()
     {
+        FindObjectOfType<AudioManager>().Play("GunShot");
         Rigidbody bulletInstance;
         bulletInstance = Instantiate(bulletPrefab, shootPosition.position, shootPosition.rotation) as Rigidbody;
         bulletInstance.velocity = shootPosition.forward * 50;

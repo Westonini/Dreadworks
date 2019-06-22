@@ -101,6 +101,7 @@ public class WorkbenchCrafting : MonoBehaviour
         {
             craftingResult.color = new Color32(0, 255, 0, 150);
             craftingResult.text = item + " successfully crafted.";
+            FindObjectOfType<AudioManager>().Play("Crafted");
             Invoke("ClearCraftingResultText", 3f);
         }
         else

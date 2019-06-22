@@ -14,6 +14,10 @@ public class EnableOrDisableScripts : MonoBehaviour
     {
         if (PC != null)
         {
+            FindObjectOfType<AudioManager>().Stop("Walking");
+            FindObjectOfType<AudioManager>().Stop("Sneaking");
+            PC.walkingSoundPlaying = false;
+            PC.sneakingSoundPlaying = false;
             PC.enabled = TF;
         }
         if (PS != null)

@@ -43,11 +43,19 @@ public class SearchObject : MonoBehaviour
             if (IP.checkedThisProvider == false)
             {
                 searching = true;
+                FindObjectOfType<AudioManager>().Play("Searching");
             }
         }
         else if (isTouchingItemProvider == true && Input.GetButtonDown("Interact") && searching == true) //Cancel search
         {
             EndSearch(true);
+        }
+        else if (isTouchingItemProvider == false && searching == true) //Cancel search
+        {
+            EndSearch(true);
+            IP = null;
+            closedObject = null;
+            openedObject = null;
         }
     }
 
@@ -99,10 +107,7 @@ public class SearchObject : MonoBehaviour
         //If player was touching an ItemProvider object.
         if (other.gameObject.tag == "ItemProvider")
         {
-            closedObject = null;
-            openedObject = null;
-            IP = null;
-            isTouchingItemProvider = false;
+            isTouchingItemProvider = false;         
         }
     }
 
@@ -110,7 +115,7 @@ public class SearchObject : MonoBehaviour
     {
         if (searching == true)
         {
-            StartSearch();
+            StartSearch();           
 
             if (searchTime <= 0)
             {
@@ -211,13 +216,16 @@ public class SearchObject : MonoBehaviour
         searching = false;
         searchTime = searchTimeReset;
         gotTheScripts = false;
+        FindObjectOfType<AudioManager>().Stop("Searching");
 
-        if (EndedEarly == false)
+        if (!EndedEarly)
         {
             SearchResults();
+            FindObjectOfType<AudioManager>().Play("Jingle");
         }
         else
         {
+            FindObjectOfType<AudioManager>().Play("Close");
             closedObject.SetActive(true);
             openedObject.SetActive(false);
         }

@@ -130,7 +130,7 @@ public class CraftingButtonHover : MonoBehaviour
             if (inv.canCraftKey == true)
             {
                 inv.keyFragments -= 4;
-                inv.canCraftKey = true;
+                inv.canCraftKey = false;
                 inv.keys += 1;
                 WC.ShowCraftingResult("Success", "Key");
             }

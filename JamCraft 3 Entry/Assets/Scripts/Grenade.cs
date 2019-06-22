@@ -7,6 +7,8 @@ public class Grenade : MonoBehaviour
     public float timeUntilExplosion = 2f;
     private bool hasExploded = false;
 
+    private AudioSource explosionSound;
+
     public float radius = 5f;
     public float force = 700f;
 
@@ -15,32 +17,35 @@ public class Grenade : MonoBehaviour
     private float countdown;
     BloodSplatter bloodsplatter;
 
+    public GameObject model;
+
     void Awake()
     {
         bloodsplatter = GameObject.FindWithTag("BloodParticleSystem").GetComponent<BloodSplatter>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         countdown = timeUntilExplosion;
+        explosionSound = GetComponent<AudioSource>();       
     }
 
-    // Update is called once per frame
     void Update()
     {
         countdown -= Time.deltaTime;
 
         if (countdown <= 0 && hasExploded == false)
         {
+            explosionSound.Play();
             Explode();
             hasExploded = true;
         }
     }
 
     void Explode()
-    {
+    {        
         Instantiate(explosionEffect, transform.position, transform.rotation);
+        model.SetActive(false);
 
         Collider [] colliders = Physics.OverlapSphere(transform.position, radius);
 
@@ -104,9 +109,7 @@ public class Grenade : MonoBehaviour
                     DealExplosionDamage(nearbyObject, enemyHealthScript);
                 }            
             }
-        }
-
-        Destroy(gameObject);
+        }  
     }
 
     //Explosion damage calculations for a character.
@@ -133,6 +136,9 @@ public class Grenade : MonoBehaviour
             {
                 PlayerHealth.health -= 100;
             }
+
+            //SoundEffect
+            FindObjectOfType<AudioManager>().Play("PlayerHurt");
         }
 
         //Enemy calculations
@@ -154,6 +160,10 @@ public class Grenade : MonoBehaviour
             {
                 healthScript.health -= 100;
             }
+
+            //Hurt Sound (has to be the second audio source in the enemy's inspector).
+            AudioSource[] enemyHurtSound = nearbyObject.gameObject.GetComponents<AudioSource>();
+            enemyHurtSound[1].Play();
         }
 
         //Blood Particles

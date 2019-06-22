@@ -13,9 +13,9 @@ public class EnemyPatrol : MonoBehaviour
     EnemyDetectionMovement EDM;
 
     private float timeToStay;
-    private bool startWait = false;
+    [HideInInspector]
+    public bool startWait = false;
     private bool choseATime = false;
-    
 
     void Awake()
     {

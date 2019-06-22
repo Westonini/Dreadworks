@@ -40,11 +40,13 @@ public class UseConsumableItem : MonoBehaviour
             if (playerIsHealing == false)
             {
                 StartCoroutine("UseHealItem");
+                FindObjectOfType<AudioManager>().Play("Healing");
             }           
         }
         if (Input.GetButtonUp("Fire1") && SS.gauze.activeSelf == true && playerIsHealing == true)
         {
             StopHeal();
+            FindObjectOfType<AudioManager>().Stop("Healing");
         }
     }
 
@@ -54,6 +56,7 @@ public class UseConsumableItem : MonoBehaviour
         pipebombInstance = Instantiate(pipebombPrefab, pipebombThrowPosition.position, pipebombThrowPosition.rotation) as Rigidbody;
         pipebombInstance.AddForce(pipebombThrowPosition.forward * 100);
         pipebombInstance.AddForce(pipebombThrowPosition.up * 100);
+        Destroy(pipebombInstance, 4f);
 
         inv.pipebombCount -= 1;
 

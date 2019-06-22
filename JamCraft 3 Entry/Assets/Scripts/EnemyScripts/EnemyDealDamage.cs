@@ -64,5 +64,8 @@ public class EnemyDealDamage : MonoBehaviour
 
         //BloodParticles
         bloodsplatter.DoBloodSplatter(other.gameObject.transform);
+
+        //SoundEffect
+        FindObjectOfType<AudioManager>().Play("PlayerHurt");
     }
 }

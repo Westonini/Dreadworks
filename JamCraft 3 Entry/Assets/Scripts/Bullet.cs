@@ -33,6 +33,10 @@ public class Bullet: MonoBehaviour
             //BloodParticles
             bloodsplatter.DoBloodSplatter(other.gameObject.transform);
 
+            //Hurt Sound (has to be the second audio source in the enemy's inspector).
+            AudioSource[] enemyHurtSound = other.gameObject.GetComponents<AudioSource>();
+            enemyHurtSound[1].Play();
+
             //Destroy self (instantiated bullet)
             Destroy(gameObject);
         }

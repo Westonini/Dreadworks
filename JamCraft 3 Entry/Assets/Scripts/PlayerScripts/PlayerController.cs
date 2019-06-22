@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection;
 
     private Camera mainCam;
-    
+
+    [HideInInspector]
+    public bool walkingSoundPlaying = false, sneakingSoundPlaying = false;
 
     private bool mouseOverEnemy = false;
 
@@ -51,9 +53,41 @@ public class PlayerController : MonoBehaviour
             moveDirection = new Vector3(-Input.GetAxisRaw("Vertical") * movementSpeed, moveDirection.y, Input.GetAxisRaw("Horizontal") * movementSpeed).normalized;
         }
 
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        {
+            if (playerIsSneaking)
+            {
+                if (!sneakingSoundPlaying)
+                {
+                    FindObjectOfType<AudioManager>().Stop("Walking");
+                    FindObjectOfType<AudioManager>().Play("Sneaking");
+                    sneakingSoundPlaying = true;
+                    walkingSoundPlaying = false;
+                }
+            }
+            else
+            {
+                if (!walkingSoundPlaying)
+                {
+                    FindObjectOfType<AudioManager>().Stop("Sneaking");
+                    FindObjectOfType<AudioManager>().Play("Walking");
+                    walkingSoundPlaying = true;
+                    sneakingSoundPlaying = false;
+                }
+            }
 
-        //Sneaking
-        if (Input.GetButton("Sneak"))
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Stop("Walking");
+            FindObjectOfType<AudioManager>().Stop("Sneaking");
+            walkingSoundPlaying = false;
+            sneakingSoundPlaying = false;
+        }
+
+
+            //Sneaking
+            if (Input.GetButton("Sneak"))
         {
             playerIsSneaking = true;
             movementSpeed = sneakingSpeed;
