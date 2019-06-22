@@ -14,10 +14,15 @@ public class EnableOrDisableScripts : MonoBehaviour
     {
         if (PC != null)
         {
-            FindObjectOfType<AudioManager>().Stop("Walking");
-            FindObjectOfType<AudioManager>().Stop("Sneaking");
-            PC.walkingSoundPlaying = false;
-            PC.sneakingSoundPlaying = false;
+            if (!TF)
+            {
+                PC.playerAnim.SetBool("isSneaking", false);
+                PC.playerAnim.SetBool("isWalking", false);
+                FindObjectOfType<AudioManager>().Stop("Walking");
+                FindObjectOfType<AudioManager>().Stop("Sneaking");
+                PC.walkingSoundPlaying = false;
+                PC.sneakingSoundPlaying = false;
+            }
             PC.enabled = TF;
         }
         if (PS != null)
@@ -52,6 +57,10 @@ public class EnableOrDisableScripts : MonoBehaviour
         try
         {
             PS = GameObject.Find("Pistol").GetComponent<PlayerShooting>();
+            if (PS != null)
+            {
+                PS.CancelReload();
+            }
         }
         catch
         {
@@ -83,10 +92,6 @@ public class EnableOrDisableScripts : MonoBehaviour
         try
         {
             SS = GameObject.FindWithTag("Player").GetComponent<SlotSelection>();
-            if (PS != null)
-            {
-                SS.CancelReload();
-            }
         }
         catch
         {

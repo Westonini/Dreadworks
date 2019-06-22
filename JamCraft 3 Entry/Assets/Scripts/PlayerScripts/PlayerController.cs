@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
 
     private Camera mainCam;
 
-    private Animator playerAnim;
+    [HideInInspector]
+    public Animator playerAnim;
 
     [HideInInspector]
     public bool walkingSoundPlaying = false, sneakingSoundPlaying = false;
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
             moveDirection = new Vector3(-Input.GetAxisRaw("Vertical") * movementSpeed, moveDirection.y, Input.GetAxisRaw("Horizontal") * movementSpeed).normalized;
         }
 
+        //Sounds & Animations
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
             if (playerIsSneaking)
@@ -82,7 +84,6 @@ public class PlayerController : MonoBehaviour
                     sneakingSoundPlaying = false;
                 }
             }
-
         }
         else
         {
@@ -96,7 +97,7 @@ public class PlayerController : MonoBehaviour
 
 
             //Sneaking
-            if (Input.GetButton("Sneak"))
+        if (Input.GetButton("Sneak"))
         {
             playerIsSneaking = true;
             movementSpeed = sneakingSpeed;

@@ -52,10 +52,12 @@ public class PlayerHealth : MonoBehaviour
         if (health < 35 && !injuredPanel.activeSelf)
         {
             injuredPanel.SetActive(true);
+            FindObjectOfType<AudioManager>().Play("HeavyBreathing");        //SoundEffect
         }
         else if (health >= 35)
         {
             injuredPanel.SetActive(false);
+            FindObjectOfType<AudioManager>().Stop("HeavyBreathing");        //SoundEffect
         }
     }
 }

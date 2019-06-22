@@ -12,7 +12,7 @@ public class ChangeCameraAngle : MonoBehaviour
     public float cameraRotateSpeed = 5;
 
     private bool currentlyRotating = false;
-    private float currentlyRotatingTimer = 1f;
+    private float currentlyRotatingTimer = 0.8f;
     private float resetTimer;
 
     private bool rotateRight = false;

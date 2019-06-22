@@ -34,6 +34,11 @@ public class PlayerMelee : MonoBehaviour
         meleeCooldownReset = meleeCooldown;
     }
 
+    void OnEnable()
+    {
+        macheteAnim.SetBool("isAttacking", false);
+    }
+
     void Update()
     {
         if (Input.GetButtonDown("Fire1") && !meleeIsOnCooldown && isWithinMeleeRange && enemy != null) //Attack if melee isnt on cooldown and there's an enemy within range.
@@ -50,6 +55,7 @@ public class PlayerMelee : MonoBehaviour
             //Animation
             macheteAnim.SetBool("isAttacking", true);
         }
+
 
         if (meleeIsOnCooldown == true) //melee cooldown timer so it's not spammable.
         {
@@ -68,6 +74,8 @@ public class PlayerMelee : MonoBehaviour
         {
             SetInfoToNull();
         }
+
+        macheteAnim.keepAnimatorControllerStateOnDisable = true;
     }
 
     void OnTriggerEnter(Collider other)

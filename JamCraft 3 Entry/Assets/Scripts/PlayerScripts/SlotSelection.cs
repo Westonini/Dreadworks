@@ -78,7 +78,7 @@ public class SlotSelection : MonoBehaviour
     {
         if (pistol.activeSelf == true && currentlySelectedItem == "Pistol")
         {
-            CancelReload();
+            PS.CancelReload();
         }
         if (gauze.activeSelf == true && currentlySelectedItem == "Gauze" && UseConsumableItem.playerIsHealing)
         {
@@ -93,17 +93,5 @@ public class SlotSelection : MonoBehaviour
 
         selectedSlot.SetActive(true);
         currentlySelectedItem = selectedSlot.name.ToString();
-    }
-
-    public void CancelReload()
-    {
-        PS.ammoText.text = "";
-        PS.reloadText.text = "";
-        PS.muzzleFlashLight.SetActive(false);
-        PS.muzzleFlashParticles.Stop();
-
-        PS.CancelInvoke("Reload");
-        PS.StopCoroutine(PS.ToggleMuzzleFlash());
-        PS.reloadTimeActive = false;
     }
 }

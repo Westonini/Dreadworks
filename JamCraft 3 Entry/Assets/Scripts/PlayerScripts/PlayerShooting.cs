@@ -26,9 +26,13 @@ public class PlayerShooting : MonoBehaviour
 
     private Inventory inv;
 
+    [HideInInspector]
+    public Animator pistolAnim;
+
     void Awake()
     {
         inv = GameObject.FindWithTag("Inventory").GetComponent<Inventory>();
+        pistolAnim = GetComponent<Animator>();
     }
 
     void Start()
@@ -53,10 +57,12 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetButtonDown("Reload") && inv.ammo > 0 && bulletsInMag != 6 && !reloadTimeActive) //Reload Input
         {
             reloadText.text = "Reloading...";
-            reloadTimeActive = true;
             FindObjectOfType<AudioManager>().Play("Reloading");
+            pistolAnim.SetBool("isReloading", true);
             Invoke("Reload", 1.75f);
+            reloadTimeActive = true;
         }
+
 
         if (Input.GetButtonDown("Fire1") && !shootIsOnCooldown) //If the player presses fire key and shoot isnt on cooldown.
         {
@@ -73,6 +79,8 @@ public class PlayerShooting : MonoBehaviour
                 shootCooldown = shootCooldownReset;
             }
         }
+
+        pistolAnim.keepAnimatorControllerStateOnDisable = true;
     }
 
     void Shoot()
@@ -90,6 +98,7 @@ public class PlayerShooting : MonoBehaviour
     {
         reloadTimeActive = false;
         reloadText.text = "";
+        pistolAnim.SetBool("isReloading", false);
 
         int newBulletsInMag;
 
@@ -124,6 +133,20 @@ public class PlayerShooting : MonoBehaviour
         {
             inv.ammo = 0;
         }
+    }
+
+    public void CancelReload()
+    {
+        ammoText.text = "";
+        reloadText.text = "";
+        muzzleFlashLight.SetActive(false);
+        muzzleFlashParticles.Stop();
+
+        FindObjectOfType<AudioManager>().Stop("Reloading");
+        pistolAnim.SetBool("isReloading", false);
+        CancelInvoke("Reload");
+        StopCoroutine(ToggleMuzzleFlash());
+        reloadTimeActive = false;
     }
 
     public IEnumerator ToggleMuzzleFlash()

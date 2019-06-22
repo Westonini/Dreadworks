@@ -44,7 +44,7 @@ public class Pause : MonoBehaviour
         gameNotInFocus = !hasFocus;
     }
 
-    private void PauseGame()
+    public void PauseGame()
     {
         pauseMenu.SetActive(true);
         EODS.GetScripts();
@@ -62,7 +62,7 @@ public class Pause : MonoBehaviour
         }
     }
 
-    private void UnPauseGame()
+    public void UnPauseGame()
     {
         pauseMenu.SetActive(false);       
         TF.enabled = true;
@@ -96,8 +96,9 @@ public class Pause : MonoBehaviour
         UnPauseGame();
         SceneManager.LoadScene(0);
     }
-    public void QuitGame()
+    public void Retry()
     {
-        Application.Quit();
+        UnPauseGame();
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 }
