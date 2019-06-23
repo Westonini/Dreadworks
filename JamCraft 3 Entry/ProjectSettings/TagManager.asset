@@ -11,6 +11,8 @@ TagManager:
   - Enemy
   - Pistol
   - BloodParticleSystem
+  - CarryOverInventory
+  - EnemyRagdoll
   layers:
   - Default
   - TransparentFX

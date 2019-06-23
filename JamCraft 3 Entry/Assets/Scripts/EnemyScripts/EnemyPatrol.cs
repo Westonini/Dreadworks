@@ -93,6 +93,7 @@ public class EnemyPatrol : MonoBehaviour
             agent.acceleration = resetAgentAcceleration;
             agent.speed = resetAgentSpeed;
             agent.autoBraking = true;
+
             enabled = !enabled;
         }
     }

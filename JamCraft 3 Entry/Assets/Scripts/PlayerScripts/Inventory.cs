@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
@@ -16,20 +17,50 @@ public class Inventory : MonoBehaviour
     public int pipebombCount = 0, gauzeCount = 0;
 
     private SlotSelection SS;
+    private CarryOverInventory CCO;
+
+    public GameObject pipebombImage;
+    public TextMeshProUGUI pipebombCountText;
+    public GameObject gauzeImage;
+    public TextMeshProUGUI gauzeCountText;
+    public GameObject keyImage;
+    public TextMeshProUGUI keyCountText;
+
+    private bool pipebombCraftedOnce = false;
+    private bool gauzeCraftedOnce = false;
+    private bool keyCraftedOnce = false;
 
     void Awake()
     {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-
         SS = GameObject.FindGameObjectWithTag("Player").GetComponent<SlotSelection>();
+
+        try
+        {
+            CCO = GameObject.FindGameObjectWithTag("CarryOverInventory").GetComponent<CarryOverInventory>();
+        }
+        catch
+        {
+            CCO = null;
+        }
+    }
+
+    void Start()
+    {
+        if (CCO != null)
+        {
+            CarryOverInventory.levelStart = true;
+
+            pistolParts = CCO.carryOverPistolParts;
+            macheteParts = CCO.carryOverMacheteParts;
+            ammo = CCO.carryOverAmmo;
+            bulletCasings = CCO.carryOverBulletCasings;
+            gunpowder = CCO.carryOverGunpowder;
+            fuses = CCO.carryOverFuses;
+            cloth = CCO.carryOverCloth;
+
+            pipebombCount = CCO.carryOverPipebombCount;
+            gauzeCount = CCO.carryOverGauzeCount;
+        }
     }
 
     // Update is called once per frame
@@ -45,9 +76,18 @@ public class Inventory : MonoBehaviour
         SS.hasPipebomb = (pipebombCount >= 1) ? true : false;
         SS.hasGauze = (gauzeCount >= 1) ? true : false;
 
-        if (PlayerHealth.health <= 0)
+        UpdateConsumableCountText(pipebombCount, ref pipebombCraftedOnce, pipebombImage, pipebombCountText);
+        UpdateConsumableCountText(gauzeCount, ref gauzeCraftedOnce, gauzeImage, gauzeCountText);
+        UpdateConsumableCountText(keys, ref keyCraftedOnce, keyImage, keyCountText);
+    }
+
+    void UpdateConsumableCountText(int count, ref bool craftedOnce, GameObject image, TextMeshProUGUI countText)
+    {
+        if (count > 0 || craftedOnce)
         {
-            Destroy(gameObject);
+            craftedOnce = true;
+            image.SetActive(true);
+            countText.text = count.ToString();
         }
     }
 }

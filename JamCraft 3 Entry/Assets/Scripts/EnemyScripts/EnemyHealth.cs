@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     public int health = 100;
+    public GameObject enemyRagdoll;
+
     [HideInInspector]
     public int maxHealth;
 
@@ -17,7 +19,9 @@ public class EnemyHealth : MonoBehaviour
     {
         if (health <= 0)
         {
-            //InstantiateRagdoll
+            GameObject ragdollInstance;
+            ragdollInstance = Instantiate(enemyRagdoll, transform.position, transform.rotation) as GameObject;
+
             Destroy(gameObject);
         }
     }

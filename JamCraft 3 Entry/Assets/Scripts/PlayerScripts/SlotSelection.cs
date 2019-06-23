@@ -20,6 +20,7 @@ public class SlotSelection : MonoBehaviour
 
     private PlayerShooting PS;
     private UseConsumableItem UCI;
+    private CarryOverInventory CCO;
 
     [HideInInspector]
     public bool cancelReload;
@@ -28,6 +29,26 @@ public class SlotSelection : MonoBehaviour
     {
         PS = pistol.GetComponent<PlayerShooting>();
         UCI = GameObject.FindGameObjectWithTag("Player").GetComponent<UseConsumableItem>();
+        
+        try
+        {
+            CCO = GameObject.FindGameObjectWithTag("CarryOverInventory").GetComponent<CarryOverInventory>();
+        }
+        catch
+        {
+            CCO = null;
+        }
+    }
+
+    private void Start()
+    {
+        if (CCO != null)
+        {
+            hasMachete = CCO.carryOverHasMachete;
+            hasPistol = CCO.carryOverHasPistol;
+            hasPipebomb = CCO.carryOverHasPipebomb;
+            hasGauze = CCO.carryOverHasGauze;
+        }
     }
 
     void Update()

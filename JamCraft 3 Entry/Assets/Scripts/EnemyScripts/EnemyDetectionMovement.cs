@@ -91,7 +91,7 @@ public class EnemyDetectionMovement : MonoBehaviour
 
         yield return new WaitForSeconds(0.01f);
 
-        if (gameObject != null)
+        if (this != null)
         {
             isKinematic = true;
         }
