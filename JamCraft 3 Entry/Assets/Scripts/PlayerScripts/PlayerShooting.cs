@@ -75,6 +75,7 @@ public class PlayerShooting : MonoBehaviour
 
             if (shootCooldown <= 0)
             {
+                pistolAnim.SetBool("isShooting", false);
                 shootIsOnCooldown = false;
                 shootCooldown = shootCooldownReset;
             }
@@ -92,6 +93,8 @@ public class PlayerShooting : MonoBehaviour
         Destroy(bulletInstance.gameObject, 0.5f);
         StartCoroutine(ToggleMuzzleFlash());
         bulletsInMag -= 1;
+
+        pistolAnim.SetBool("isShooting", true);
     }
 
     void Reload()
@@ -144,6 +147,7 @@ public class PlayerShooting : MonoBehaviour
 
         FindObjectOfType<AudioManager>().Stop("Reloading");
         pistolAnim.SetBool("isReloading", false);
+        pistolAnim.SetBool("isShooting", false);
         CancelInvoke("Reload");
         StopCoroutine(ToggleMuzzleFlash());
         reloadTimeActive = false;

@@ -22,6 +22,7 @@ public class CraftingButtonHover : MonoBehaviour
 
     public void OnMouseHover()
     {
+        //Sets buttonName to whichever button the mouse is hovering over and then sets craftingInfo text accordingly
         buttonName = gameObject.name.ToString();
 
         if (buttonName == "MacheteButton")
@@ -58,6 +59,7 @@ public class CraftingButtonHover : MonoBehaviour
 
     public void OnClick()
     {
+        //Craft if player has all the materials.
         if (buttonName == "MacheteButton")
         {
             if (inv.canCraftMachete == true)
@@ -130,7 +132,6 @@ public class CraftingButtonHover : MonoBehaviour
             if (inv.canCraftKey == true)
             {
                 inv.keyFragments -= 4;
-                inv.canCraftKey = false;
                 inv.keys += 1;
                 WC.ShowCraftingResult("Success", "Key");
             }

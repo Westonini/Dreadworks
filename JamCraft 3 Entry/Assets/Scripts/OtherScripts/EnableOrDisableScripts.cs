@@ -79,7 +79,7 @@ public class EnableOrDisableScripts : MonoBehaviour
         try
         {
             UCI = GameObject.Find("Player").GetComponent<UseConsumableItem>();
-            if (UCI != null)
+            if (UCI != null && UseConsumableItem.playerIsHealing)
             {
                 UCI.StopHeal();
             }

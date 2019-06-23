@@ -18,13 +18,17 @@ public class UseConsumableItem : MonoBehaviour
     Inventory inv;
     PlayerController PC;
 
+    public GameObject gauze;
+    public Animator gauzeAnim;
+    public GameObject pipebomb;
+    public Animator pipebombAnim;
+
     void Awake()
     {
         SS = GameObject.FindGameObjectWithTag("Player").GetComponent<SlotSelection>();
         inv = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
         PC = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
-
 
     void Update()
     {
@@ -40,13 +44,21 @@ public class UseConsumableItem : MonoBehaviour
             if (playerIsHealing == false)
             {
                 StartCoroutine("UseHealItem");
-                FindObjectOfType<AudioManager>().Play("Healing");
             }           
         }
         if (Input.GetButtonUp("Fire1") && SS.gauze.activeSelf == true && playerIsHealing == true)
         {
             StopHeal();
-            FindObjectOfType<AudioManager>().Stop("Healing");
+        }
+
+        //Fix for animations on gauze and pipebomb.
+        if (gauze.activeSelf)
+        {
+            gauzeAnim.keepAnimatorControllerStateOnDisable = true;
+        }
+        if (pipebomb.activeSelf)
+        {
+            pipebombAnim.keepAnimatorControllerStateOnDisable = true;
         }
     }
 
@@ -71,12 +83,16 @@ public class UseConsumableItem : MonoBehaviour
         healingText.text = "Healing...";
         playerIsHealing = true;
         PC.movementSpeed = PC.sneakingSpeed;
+        gauzeAnim.SetBool("isHealing", true);
+        FindObjectOfType<AudioManager>().Play("Healing");
 
         yield return new WaitForSeconds(gauzeHealTime);
 
         healingText.text = "";
         playerIsHealing = false;
         PC.movementSpeed = PC.resetMovementSpeed;
+        gauzeAnim.SetBool("isHealing", false);
+        FindObjectOfType<AudioManager>().Stop("Healing");
 
         PlayerHealth.health += 50;
 
@@ -92,7 +108,9 @@ public class UseConsumableItem : MonoBehaviour
     {
         healingText.text = "";
         PC.movementSpeed = PC.resetMovementSpeed;
+        gauzeAnim.SetBool("isHealing", false);
         StopCoroutine("UseHealItem");
+        FindObjectOfType<AudioManager>().Stop("Healing");
         playerIsHealing = false;
     }
 }

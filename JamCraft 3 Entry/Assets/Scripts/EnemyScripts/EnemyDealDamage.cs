@@ -10,8 +10,10 @@ public class EnemyDealDamage : MonoBehaviour
     private bool meleeIsOnCooldown = false;
 
     public int knockbackForce = 10;
+    public Animator attackAnim;
 
     BloodSplatter bloodsplatter;
+
     void Awake()
     {
         bloodsplatter = GameObject.FindWithTag("BloodParticleSystem").GetComponent<BloodSplatter>();
@@ -30,6 +32,7 @@ public class EnemyDealDamage : MonoBehaviour
 
             if (meleeCooldown <= 0)
             {
+                attackAnim.SetBool("isAttacking", false);
                 meleeIsOnCooldown = false;
                 meleeCooldown = meleeCooldownReset;
             }
@@ -67,5 +70,8 @@ public class EnemyDealDamage : MonoBehaviour
 
         //SoundEffect
         FindObjectOfType<AudioManager>().Play("PlayerHurt");
+
+        //Animation
+        attackAnim.SetBool("isAttacking", true);
     }
 }

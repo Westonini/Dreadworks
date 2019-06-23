@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory instance;
+
     [HideInInspector]
     public bool canCraftPistol = false, canCraftMachete = false, canCraftAmmo = false, canCraftPipebomb = false, canCraftGauze = false, canCraftKey = false;
 
@@ -16,19 +17,18 @@ public class Inventory : MonoBehaviour
 
     private SlotSelection SS;
 
-    public GameObject pipebombImage;
-    public TextMeshProUGUI pipebombCountText;
-    public GameObject gauzeImage;
-    public TextMeshProUGUI gauzeCountText;
-    public GameObject keyImage;
-    public TextMeshProUGUI keyCountText;
-
-    private bool pipebombCraftedOnce = false;
-    private bool gauzeCraftedOnce = false;
-    private bool keyCraftedOnce = false;
-
     void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
         SS = GameObject.FindGameObjectWithTag("Player").GetComponent<SlotSelection>();
     }
 
@@ -45,18 +45,9 @@ public class Inventory : MonoBehaviour
         SS.hasPipebomb = (pipebombCount >= 1) ? true : false;
         SS.hasGauze = (gauzeCount >= 1) ? true : false;
 
-        UpdateConsumableCountText(pipebombCount, ref pipebombCraftedOnce, pipebombImage, pipebombCountText);
-        UpdateConsumableCountText(gauzeCount, ref gauzeCraftedOnce, gauzeImage, gauzeCountText);
-        UpdateConsumableCountText(keys, ref keyCraftedOnce, keyImage, keyCountText);
-    }
-
-    void UpdateConsumableCountText(int count, ref bool craftedOnce, GameObject image, TextMeshProUGUI countText)
-    {
-        if (count > 0 || craftedOnce)
+        if (PlayerHealth.health <= 0)
         {
-            craftedOnce = true;
-            image.SetActive(true);
-            countText.text = count.ToString();
+            Destroy(gameObject);
         }
-    } 
+    }
 }
