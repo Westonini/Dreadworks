@@ -3,7 +3,52 @@ guid: 2c3a09935c9dd9847822a1941fa2b7dd
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _defaultMat
+    second: {fileID: 2100000, guid: 7771290663c58c944b87e1ccc5999ef8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: customMaterial1
+    second: {fileID: 2100000, guid: d8515f3cd69c25c4e8937b204ad6d5a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: customMaterial2
+    second: {fileID: 2100000, guid: 535401d7494660b4f977b7b7a0e62bba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: customMaterial6
+    second: {fileID: 2100000, guid: 34fec8f64edfed240b82b8ec060c43bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: customMaterial7
+    second: {fileID: 2100000, guid: 0409cdbc1b0379b439ad374f699244cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: customMaterial9
+    second: {fileID: 2100000, guid: d2a132ef3fa213442951e0a00671fb37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hilt
+    second: {fileID: 2100000, guid: 45637154051e60d4cb91de6bab2d618c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lightStone
+    second: {fileID: 2100000, guid: 54e84a297391de141980b430cbb45888, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof
+    second: {fileID: 2100000, guid: b370585575c590245aa11dd21ce6b982, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

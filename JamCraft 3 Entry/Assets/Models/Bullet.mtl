@@ -2,7 +2,7 @@
 
 newmtl border (Instance)
 Ka 0.000000 0.000000 0.000000 
-Kd 1 0.7490196 0 
+Kd 1 0.749 0 
 Ks 0.330000 0.330000 0.330000 
 map_Kd Textures/border (Instance).png
 

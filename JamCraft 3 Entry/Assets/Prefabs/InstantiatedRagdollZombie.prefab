@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 7304803679991260367}
   - component: {fileID: 7304803679991260366}
   m_Layer: 13
-  m_Name: block_default_6
+  m_Name: LeftEye
   m_TagString: EnemyRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ Transform:
   m_Children:
   - {fileID: 7304803680650696763}
   m_Father: {fileID: 7304803680011871141}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7304803679991260360
 MeshFilter:
@@ -151,7 +151,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8491000790565538484, guid: 302c07ed6269f50489e4e73cb9bfc9ec, type: 3}
+  - {fileID: 2100000, guid: 43a5b8d6bb545ba4c83486b2a1cf2e3a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -229,14 +229,14 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7304803679991260362}
-  - {fileID: 7304803681084237068}
-  - {fileID: 7304803681361586716}
-  - {fileID: 7304803681742528039}
-  - {fileID: 7304803680310280535}
   - {fileID: 7304803680981583123}
   - {fileID: 7304803681666538008}
+  - {fileID: 7304803679991260362}
+  - {fileID: 7304803681084237068}
   - {fileID: 7304803680508076878}
+  - {fileID: 7304803681742528039}
+  - {fileID: 7304803681361586716}
+  - {fileID: 7304803680310280535}
   m_Father: {fileID: 7304803680992546353}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -299,7 +299,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3963241562183589234, guid: 302c07ed6269f50489e4e73cb9bfc9ec, type: 3}
+  - {fileID: 2100000, guid: e8a7f694a92e3654c9f0a57e98aa161c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 7304803680310280532}
   - component: {fileID: 7304803680310280539}
   m_Layer: 13
-  m_Name: block_default_11
+  m_Name: LeftShoe
   m_TagString: EnemyRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -382,7 +382,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7304803680011871141}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7304803680310280533
 MeshFilter:
@@ -409,7 +409,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6352178953015295194, guid: 302c07ed6269f50489e4e73cb9bfc9ec, type: 3}
+  - {fileID: 2100000, guid: ee468899125425046bfaa10cbdff8d50, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -519,7 +519,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7337500861575938673, guid: 302c07ed6269f50489e4e73cb9bfc9ec, type: 3}
+  - {fileID: 2100000, guid: cc561acb844656041a4d4b2dd746ff47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -629,7 +629,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7337500861575938673, guid: 302c07ed6269f50489e4e73cb9bfc9ec, type: 3}
+  - {fileID: 2100000, guid: cc561acb844656041a4d4b2dd746ff47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 7304803680508076915}
   - component: {fileID: 7304803680508076914}
   m_Layer: 13
-  m_Name: block_default_2
+  m_Name: RightLeg
   m_TagString: EnemyRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -712,7 +712,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7304803680011871141}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7304803680508076876
 MeshFilter:
@@ -739,7 +739,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7674923503234155378, guid: 302c07ed6269f50489e4e73cb9bfc9ec, type: 3}
+  - {fileID: 2100000, guid: a179f547b930aaf48a45b6fff6fffeb4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 7304803680981583120}
   - component: {fileID: 7304803680981583127}
   m_Layer: 13
-  m_Name: block_rounded_0
+  m_Name: Head
   m_TagString: EnemyRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -947,7 +947,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7304803680011871141}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7304803680981583121
 MeshFilter:
@@ -974,7 +974,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3963241562183589234, guid: 302c07ed6269f50489e4e73cb9bfc9ec, type: 3}
+  - {fileID: 2100000, guid: e8a7f694a92e3654c9f0a57e98aa161c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1185,7 +1185,7 @@ GameObject:
   - component: {fileID: 7304803681084237105}
   - component: {fileID: 7304803681084237104}
   m_Layer: 13
-  m_Name: block_default_7
+  m_Name: RightEye
   m_TagString: EnemyRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1204,7 +1204,7 @@ Transform:
   m_Children:
   - {fileID: 7304803679972716163}
   m_Father: {fileID: 7304803680011871141}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7304803681084237106
 MeshFilter:
@@ -1231,7 +1231,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8491000790565538484, guid: 302c07ed6269f50489e4e73cb9bfc9ec, type: 3}
+  - {fileID: 2100000, guid: 43a5b8d6bb545ba4c83486b2a1cf2e3a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1341,7 +1341,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3963241562183589234, guid: 302c07ed6269f50489e4e73cb9bfc9ec, type: 3}
+  - {fileID: 2100000, guid: e8a7f694a92e3654c9f0a57e98aa161c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1406,7 +1406,7 @@ GameObject:
   - component: {fileID: 7304803681361586689}
   - component: {fileID: 7304803681361586688}
   m_Layer: 13
-  m_Name: block_default_9
+  m_Name: RightShoe
   m_TagString: EnemyRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1424,7 +1424,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7304803680011871141}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7304803681361586690
 MeshFilter:
@@ -1451,7 +1451,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6352178953015295194, guid: 302c07ed6269f50489e4e73cb9bfc9ec, type: 3}
+  - {fileID: 2100000, guid: ee468899125425046bfaa10cbdff8d50, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1516,7 +1516,7 @@ GameObject:
   - component: {fileID: 7304803681666538013}
   - component: {fileID: 7304803681666538012}
   m_Layer: 13
-  m_Name: block_rounded_8
+  m_Name: Body
   m_TagString: EnemyRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1534,7 +1534,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7304803680011871141}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7304803681666538014
 MeshFilter:
@@ -1561,7 +1561,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7337500861575938673, guid: 302c07ed6269f50489e4e73cb9bfc9ec, type: 3}
+  - {fileID: 2100000, guid: cc561acb844656041a4d4b2dd746ff47, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1626,7 +1626,7 @@ GameObject:
   - component: {fileID: 7304803681742528036}
   - component: {fileID: 7304803681742528043}
   m_Layer: 13
-  m_Name: block_default_10
+  m_Name: LeftLeg
   m_TagString: EnemyRagdoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1644,7 +1644,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7304803680011871141}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7304803681742528037
 MeshFilter:
@@ -1671,7 +1671,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7674923503234155378, guid: 302c07ed6269f50489e4e73cb9bfc9ec, type: 3}
+  - {fileID: 2100000, guid: a179f547b930aaf48a45b6fff6fffeb4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

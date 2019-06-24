@@ -3,7 +3,22 @@ guid: ad312a15800182642b85bb4ce2e83dab
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blade
+    second: {fileID: 2100000, guid: ef324dfb6b3cd9c4f84c945b85664a96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: 51aba5ad269b3e44d9f748245c51c1a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone
+    second: {fileID: 2100000, guid: 731d002deaaa3374f8f8de726d9cf60f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

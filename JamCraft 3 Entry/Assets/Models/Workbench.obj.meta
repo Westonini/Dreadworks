@@ -3,7 +3,52 @@ guid: 5e847fb2050a4f943be4500f72afcee0
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blueSteel
+    second: {fileID: 2100000, guid: 6533c09bea57d254787ce81811035efe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: border
+    second: {fileID: 2100000, guid: 1b18f0629011c57418db3ed05ae2dede, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: darkStone
+    second: {fileID: 2100000, guid: 8a573ae5c5ca8184db334e3f166ea86e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hilt
+    second: {fileID: 2100000, guid: a652c2c3bccaceb43809c8439c4c2273, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: light
+    second: {fileID: 2100000, guid: 95e217fff14ff7944970e9a79b6b1410, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lightStone
+    second: {fileID: 2100000, guid: b01cc5835bea86e42a489f6a91bcb342, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof
+    second: {fileID: 2100000, guid: 6064bc0364da2fe42890ed8001cfece6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tire
+    second: {fileID: 2100000, guid: 931b56d1285fcbb4fbcbe90d718724eb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: 8094fb5a898f7cf4abe6f1b16862be2f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
