@@ -8,12 +8,14 @@ public class SlotSelection : MonoBehaviour
     public bool hasPistol = false;
     public bool hasPipebomb = false;
     public bool hasGauze = false;
+    public bool hasKey = false;
 
     public GameObject nothingEquipped;
     public GameObject machete;
     public GameObject pistol;
     public GameObject pipebomb;
     public GameObject gauze;
+    public GameObject key;
 
     [HideInInspector]
     public string currentlySelectedItem = "NoWeapon";
@@ -92,6 +94,16 @@ public class SlotSelection : MonoBehaviour
         {
             ChangeSlots(nothingEquipped);
         }
+
+        //Key is slot 5
+        if (Input.GetButtonDown("Slot5") && hasKey == true && currentlySelectedItem != "Key")
+        {
+            ChangeSlots(key);
+        }
+        else if (Input.GetButtonDown("Slot5") && hasKey == true && currentlySelectedItem == "Key")
+        {
+            ChangeSlots(nothingEquipped);
+        }
     }
 
     //Changes currently equipped item to whatever is passed in.
@@ -111,6 +123,7 @@ public class SlotSelection : MonoBehaviour
         pistol.SetActive(false);
         pipebomb.SetActive(false);
         gauze.SetActive(false);
+        key.SetActive(false);
 
         selectedSlot.SetActive(true);
         currentlySelectedItem = selectedSlot.name.ToString();

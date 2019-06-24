@@ -11,10 +11,10 @@ public class Inventory : MonoBehaviour
     public bool canCraftPistol = false, canCraftMachete = false, canCraftAmmo = false, canCraftPipebomb = false, canCraftGauze = false, canCraftKey = false;
 
     [HideInInspector]
-    public int pistolParts, macheteParts, ammo, bulletCasings, gunpowder, fuses, cloth, keyFragments, keys;
+    public int pistolParts, macheteParts, ammo, bulletCasings, gunpowder, fuses, cloth, keyFragments;
 
     [HideInInspector]
-    public int pipebombCount = 0, gauzeCount = 0;
+    public int pipebombCount = 0, gauzeCount = 0, keysCount = 0;
 
     private SlotSelection SS;
     private CarryOverInventory CCO;
@@ -75,10 +75,11 @@ public class Inventory : MonoBehaviour
 
         SS.hasPipebomb = (pipebombCount >= 1) ? true : false;
         SS.hasGauze = (gauzeCount >= 1) ? true : false;
+        SS.hasKey = (keysCount >= 1) ? true : false;
 
         UpdateConsumableCountText(pipebombCount, ref pipebombCraftedOnce, pipebombImage, pipebombCountText);
         UpdateConsumableCountText(gauzeCount, ref gauzeCraftedOnce, gauzeImage, gauzeCountText);
-        UpdateConsumableCountText(keys, ref keyCraftedOnce, keyImage, keyCountText);
+        UpdateConsumableCountText(keysCount, ref keyCraftedOnce, keyImage, keyCountText);
     }
 
     void UpdateConsumableCountText(int count, ref bool craftedOnce, GameObject image, TextMeshProUGUI countText)

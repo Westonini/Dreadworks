@@ -84,7 +84,7 @@ public class WorkbenchCrafting : MonoBehaviour
         inventoryContents.text = "Pipebombs: " + inv.pipebombCount.ToString() + "\n" +
                                  "Gauze: " + inv.gauzeCount.ToString() + "\n" +
                                  "Ammo: " + inv.ammo.ToString() + "\n" +
-                                 "Keys: " + inv.keys.ToString() + "\n" +
+                                 "Keys: " + inv.keysCount.ToString() + "\n" +
                                  "\n" +
                                  "Machete Parts: " + inv.macheteParts.ToString() + "\n" +
                                  "Pistol Parts: " + inv.pistolParts.ToString() + "\n" +

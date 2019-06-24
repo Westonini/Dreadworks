@@ -38,7 +38,8 @@ public class SearchObject : MonoBehaviour
     {
         Search(); //Called when searching is set to true
 
-        if (isTouchingItemProvider == true && Input.GetButtonDown("Interact") && searching == false) //Begin search
+        //Begin search
+        if (isTouchingItemProvider == true && Input.GetButtonDown("Interact") && searching == false)
         {
             if (IP.checkedThisProvider == false)
             {
@@ -46,11 +47,13 @@ public class SearchObject : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("Searching");
             }
         }
-        else if (isTouchingItemProvider == true && Input.GetButtonDown("Interact") && searching == true) //Cancel search
+        //Cancel search
+        else if (isTouchingItemProvider == true && Input.GetButtonDown("Interact") && searching == true)
         {
             EndSearch(true);
         }
-        else if (isTouchingItemProvider == false && searching == true) //Cancel search
+        //Cancel search
+        else if (isTouchingItemProvider == false && searching == true)
         {
             EndSearch(true);
             IP = null;
