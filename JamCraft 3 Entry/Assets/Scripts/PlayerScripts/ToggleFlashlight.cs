@@ -9,6 +9,16 @@ public class ToggleFlashlight : MonoBehaviour
     public GameObject flashlight;
     public GameObject playerLight;
 
+    public bool startWithFlashlightOff = false;
+
+    void Start()
+    {
+        if (startWithFlashlightOff)
+        {
+            ToggleFlashLight(false);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {      

@@ -1,0 +1,14 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+newmtl customMaterial1
+Ka 0.000000 0.000000 0.000000 
+Kd 0.213 0.213 0.213 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/customMaterial1.png
+
+newmtl _defaultMat (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.55 0.55 0.55 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/_defaultMat (Instance).png
+
