@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerHealth : MonoBehaviour
@@ -12,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public TextMeshProUGUI healthWord;
     public TextMeshProUGUI healthText;
     public GameObject injuredPanel;
+    public GameObject playerRagdoll;
 
     void Start()
     {
@@ -24,7 +24,11 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             health = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);           
+
+            GameObject ragdollInstance;
+            ragdollInstance = Instantiate(playerRagdoll, transform.position, transform.rotation) as GameObject;
+
+            Destroy(gameObject);
         }
         if (health > 100)
         {

@@ -40,10 +40,13 @@ public class EnemyDetectionMovement : MonoBehaviour
     public void DetectedPlayer()
     {
         ChangeArms("Up");
-        agent.SetDestination(player.transform.position);
+        if (player != null)
+        {
+            agent.SetDestination(player.transform.position);
 
-        Vector3 lookAtPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
-        transform.LookAt(lookAtPosition);
+            Vector3 lookAtPosition = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
+            transform.LookAt(lookAtPosition);
+        }
     }
 
     //Changes arm position
