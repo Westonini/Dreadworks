@@ -41,6 +41,7 @@ public class UseKey : MonoBehaviour
         if ((Input.GetButtonDown("Fire1") || Input.GetButtonDown("Interact")) && SS.key.activeSelf && isTouchingLockedDoor && !unlocking)
         {
             unlocking = true;
+            FindObjectOfType<AudioManager>().Play("Unlocking");
         }
         //Cancel unlock
         else if ((Input.GetButtonDown("Fire1") || Input.GetButtonDown("Interact")) && SS.key.activeSelf && isTouchingLockedDoor && unlocking)
@@ -140,12 +141,12 @@ public class UseKey : MonoBehaviour
         unlocking = false;
         unlockTime = unlockTimeReset;
         gotTheScripts = false;
-        //FindObjectOfType<AudioManager>().Stop("Searching");
+        FindObjectOfType<AudioManager>().Stop("Unlocking");
 
         if (!EndedEarly)
         {
             UnlockDoor();
-            //FindObjectOfType<AudioManager>().Play("Jingle");
+            FindObjectOfType<AudioManager>().Play("Unlocked");
         }
     }
 

@@ -117,6 +117,14 @@ public class SlotSelection : MonoBehaviour
         {
             UCI.StopHeal();
         }
+        if (selectedSlot == pipebomb)
+        {
+            FindObjectOfType<AudioManager>().Play("BombSizzle");
+        }
+        else if (currentlySelectedItem == "Pipebomb")
+        {
+            FindObjectOfType<AudioManager>().Stop("BombSizzle");
+        }
 
         nothingEquipped.SetActive(false);
         machete.SetActive(false);

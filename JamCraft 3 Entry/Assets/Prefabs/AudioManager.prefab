@@ -189,3 +189,30 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: Unlocking
+    clip: {fileID: 8300000, guid: 31e3387eb8cd4ae4882a4128570d8b55, type: 3}
+    volume: 0.75
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Unlocked
+    clip: {fileID: 8300000, guid: 30ed02e6090f3ff41834fc0609b0b98b, type: 3}
+    volume: 0.75
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Open
+    clip: {fileID: 8300000, guid: 32cb4bf6a997eec4f9b1222aabd5edca, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}

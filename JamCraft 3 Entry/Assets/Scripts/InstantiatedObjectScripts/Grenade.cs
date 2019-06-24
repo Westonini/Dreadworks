@@ -8,6 +8,7 @@ public class Grenade : MonoBehaviour
     private bool hasExploded = false;
 
     private AudioSource explosionSound;
+    public AudioSource bombSizzle;
 
     public float radius = 5f;
     public float force = 700f;
@@ -46,6 +47,7 @@ public class Grenade : MonoBehaviour
     {        
         Instantiate(explosionEffect, transform.position, transform.rotation);
         model.SetActive(false);
+        bombSizzle.Stop();
 
         Collider [] colliders = Physics.OverlapSphere(transform.position, radius);
 

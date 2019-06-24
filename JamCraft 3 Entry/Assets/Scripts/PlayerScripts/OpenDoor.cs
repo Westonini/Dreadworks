@@ -15,6 +15,7 @@ public class OpenDoor : MonoBehaviour
     {
         if (isTouchingUnlockedDoor == true && Input.GetButtonDown("Interact") && unlockedDoor.activeSelf)
         {
+            FindObjectOfType<AudioManager>().Play("Open");
             doorCollider.enabled = false;
             unlockedDoor.SetActive(false);
             openedDoor.SetActive(true);
