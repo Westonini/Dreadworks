@@ -73,6 +73,9 @@ public class WorkbenchCrafting : MonoBehaviour
         if (other.gameObject.tag == "Workbench")
         {
             isTouchingWorkBench = false;
+            crafting = false;
+            craftingMenu.SetActive(false);
+            EODS.EnableDisableScripts(true);
         }
     }
 

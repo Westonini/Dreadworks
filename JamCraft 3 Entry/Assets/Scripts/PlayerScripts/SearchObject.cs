@@ -107,7 +107,7 @@ public class SearchObject : MonoBehaviour
         //If player was touching an ItemProvider object.
         if (other.gameObject.tag == "ItemProvider")
         {
-            isTouchingItemProvider = false;         
+            isTouchingItemProvider = false;
         }
     }
 

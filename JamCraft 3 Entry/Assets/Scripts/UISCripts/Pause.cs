@@ -12,6 +12,7 @@ public class Pause : MonoBehaviour
 
     public GameObject pauseMenu;
     public GameObject workBenchMenu;
+    private GameObject player;
 
     EnableOrDisableScripts EODS;
     ToggleFlashlight TF;
@@ -22,6 +23,7 @@ public class Pause : MonoBehaviour
         TF = GameObject.FindGameObjectWithTag("Player").GetComponent<ToggleFlashlight>();
         EODS = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<EnableOrDisableScripts>();
         SO = GameObject.FindGameObjectWithTag("Interact").GetComponent<SearchObject>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -47,11 +49,16 @@ public class Pause : MonoBehaviour
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
-        EODS.GetScripts();
-        EODS.EnableDisableScripts(false);
-        flashlightWasOn = TF.flashlightIsOn;
-        TF.ToggleFlashLight(false);
-        TF.enabled = false;
+
+        if (player != null)
+        {
+            EODS.GetScripts();
+            EODS.EnableDisableScripts(false);
+            flashlightWasOn = TF.flashlightIsOn;
+            TF.ToggleFlashLight(false);
+            TF.enabled = false;
+        }
+
         Time.timeScale = 0;
         isPaused = true;
 
@@ -64,25 +71,31 @@ public class Pause : MonoBehaviour
 
     public void UnPauseGame()
     {
-        pauseMenu.SetActive(false);       
-        TF.enabled = true;
-        if (flashlightWasOn)
+        pauseMenu.SetActive(false);
+        
+        if (player != null)
         {
-            TF.ToggleFlashLight(true);
+            TF.enabled = true;
+            if (flashlightWasOn)
+            {
+                TF.ToggleFlashLight(true);
+            }
+            if (SO.searching)
+            {
+                EODS.EnableDisableScripts(false);
+            }
+            else
+            {
+                EODS.EnableDisableScripts(true);
+            }
         }
+
         if (workbenchWasOn)
         {
             workBenchMenu.SetActive(true);
             workbenchWasOn = false;
         }
-        if (SO.searching)
-        {
-            EODS.EnableDisableScripts(false);
-        }
-        else
-        {
-            EODS.EnableDisableScripts(true);
-        }
+
         Time.timeScale = 1;
         isPaused = false;
     }

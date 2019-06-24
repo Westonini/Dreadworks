@@ -25,8 +25,11 @@ public class ToggleFlashlight : MonoBehaviour
     //Toggle flashlight
     public void ToggleFlashLight(bool Toggle)
     {
-        flashlight.SetActive(Toggle);
-        playerLight.SetActive(Toggle);
-        flashlightIsOn = Toggle;
+        if (flashlight != null)
+        {
+            flashlight.SetActive(Toggle);
+            playerLight.SetActive(Toggle);
+            flashlightIsOn = Toggle;
+        }
     }
 }
