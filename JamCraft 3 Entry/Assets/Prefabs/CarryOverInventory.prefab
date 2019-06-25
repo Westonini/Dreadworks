@@ -10,14 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5797256115473049222}
   - component: {fileID: 6173277244503946704}
-  - component: {fileID: 7736790747706339735}
   m_Layer: 0
   m_Name: CarryOverInventory
   m_TagString: CarryOverInventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5797256115473049222
 Transform:
   m_ObjectHideFlags: 0
@@ -57,16 +56,3 @@ MonoBehaviour:
   carryOverCloth: 0
   carryOverPipebombCount: 0
   carryOverGauzeCount: 0
---- !u!65 &7736790747706339735
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7736790747706339734}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

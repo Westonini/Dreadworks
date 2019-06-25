@@ -1,0 +1,20 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+newmtl Wood_Light (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.6100296 0.5284847 0.3955967 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/Wood_Light (Instance) (Instance).png
+
+newmtl Wood_Darker (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.3843 0.3137 0.251 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/Wood_Darker (Instance) (Instance).png
+
+newmtl Light_Grey (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.6549 0.6549 0.6549 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/Light_Grey (Instance) (Instance).png
+

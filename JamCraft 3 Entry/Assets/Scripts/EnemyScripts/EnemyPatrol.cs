@@ -49,7 +49,14 @@ public class EnemyPatrol : MonoBehaviour
             return;
 
         // Set the agent to go to the currently selected destination.
-        agent.destination = points[destPoint].position;
+        if (points.Length != 0)
+        {
+            agent.destination = points[destPoint].position;
+        }
+        else
+        {
+            EDM.isWithinDetectionRange = true;
+        }
 
         // Choose a random point in the array as the destination,
         destPoint = Random.Range(0, points.Length);

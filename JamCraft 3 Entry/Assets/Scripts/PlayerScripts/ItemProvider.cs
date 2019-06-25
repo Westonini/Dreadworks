@@ -17,6 +17,7 @@ public class ItemProvider : MonoBehaviour
 
     [Space]
     public bool randomizeDrops = false;
+    public bool cheatChest = false;
 
     [HideInInspector]
     public bool checkedThisProvider = false;
@@ -68,6 +69,25 @@ public class ItemProvider : MonoBehaviour
             itemsToGive.Add("KeyFragments");
         }
 
+        if (cheatChest)
+        {
+            itemsToGive.Add("PistolPart");
+            itemsToGive.Add("PistolPart");
+            itemsToGive.Add("PistolPart");
+            itemsToGive.Add("PistolPart");
+            itemsToGive.Add("MachetePart");
+            itemsToGive.Add("MachetePart");
+            itemsToGive.Add("MachetePart");
+            itemsToGive.Add("Ammo");
+            itemsToGive.Add("Ammo");
+            itemsToGive.Add("BulletCasings");
+            itemsToGive.Add("Gunpowder");
+            itemsToGive.Add("Pipebomb");
+            itemsToGive.Add("Fuses");
+            itemsToGive.Add("Gauze");
+            itemsToGive.Add("Cloth");
+            itemsToGive.Add("KeyFragments");
+        }
 
         if (randomizeDrops)
         {

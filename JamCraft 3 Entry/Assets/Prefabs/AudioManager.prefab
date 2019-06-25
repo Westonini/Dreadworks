@@ -216,3 +216,12 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: BombSizzle
+    clip: {fileID: 8300000, guid: 9243a0684fc3a204fb1cef6ad7484f49, type: 3}
+    volume: 0.1
+    volumeVariance: 0
+    pitch: 0.75
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}

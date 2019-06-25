@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class OutOfBoundsLevelReset : MonoBehaviour
 {
-    Pause pause;
-
-    private void Awake()
-    {
-        pause = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Pause>();
-    }
-
-    //If player touches this object the scene resets
+    //If player or enemy touches this, they die.
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            pause.Retry();
+            PlayerHealth.health = 0;
+        }
+        else if (other.gameObject.tag == "Enemy")
+        {
+            EnemyHealth EH = other.gameObject.GetComponent<EnemyHealth>();
+            EH.health = 0;
         }
     }
 }

@@ -17,7 +17,7 @@ public class Inventory : MonoBehaviour
     public int pipebombCount = 0, gauzeCount = 0, keysCount = 0;
 
     private SlotSelection SS;
-    private CarryOverInventory CCO;
+    private CarryOverInventory COI;
 
     public GameObject pipebombImage;
     public TextMeshProUGUI pipebombCountText;
@@ -36,30 +36,28 @@ public class Inventory : MonoBehaviour
 
         try
         {
-            CCO = GameObject.FindGameObjectWithTag("CarryOverInventory").GetComponent<CarryOverInventory>();
+            COI = GameObject.FindGameObjectWithTag("CarryOverInventory").GetComponent<CarryOverInventory>();
         }
         catch
         {
-            CCO = null;
+            COI = null;
         }
     }
 
     void Start()
     {
-        if (CCO != null)
+        if (COI != null)
         {
-            CarryOverInventory.levelStart = true;
+            pistolParts = COI.carryOverPistolParts;
+            macheteParts = COI.carryOverMacheteParts;
+            ammo = COI.carryOverAmmo;
+            bulletCasings = COI.carryOverBulletCasings;
+            gunpowder = COI.carryOverGunpowder;
+            fuses = COI.carryOverFuses;
+            cloth = COI.carryOverCloth;
 
-            pistolParts = CCO.carryOverPistolParts;
-            macheteParts = CCO.carryOverMacheteParts;
-            ammo = CCO.carryOverAmmo;
-            bulletCasings = CCO.carryOverBulletCasings;
-            gunpowder = CCO.carryOverGunpowder;
-            fuses = CCO.carryOverFuses;
-            cloth = CCO.carryOverCloth;
-
-            pipebombCount = CCO.carryOverPipebombCount;
-            gauzeCount = CCO.carryOverGauzeCount;
+            pipebombCount = COI.carryOverPipebombCount;
+            gauzeCount = COI.carryOverGauzeCount;
         }
     }
 

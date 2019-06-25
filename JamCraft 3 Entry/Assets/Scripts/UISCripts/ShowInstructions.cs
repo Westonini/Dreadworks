@@ -10,6 +10,12 @@ public class ShowInstructions : MonoBehaviour
     public TextMeshProUGUI instructionsText;
     public string instructions;
 
+    [Space]
+    public bool isAlsoAnInvisWall = false;
+    public bool turnOnInvisWall = false;
+    public Collider invisWall;
+
+    [Space]
     public TextMeshProUGUI goalsText;
     public string[] newGoal;
 
@@ -41,8 +47,19 @@ public class ShowInstructions : MonoBehaviour
                 goalsText.text += newGoal[i] + "\n";
             }
 
-            //Disable the collider once the player interacts with it.
-            _collider.enabled = false;
+            //Used for when the player must complete a goal before proceeding.
+            if (turnOnInvisWall && invisWall != null)
+            {
+                invisWall.enabled = true;
+            }
+        }
+        else if (other.gameObject.tag == "Interact" && isAlsoAnInvisWall)
+        {
+            //Tell the InstructionsManager script that new text has been added (used for removing the text).
+            IM.newTextAdded = true;
+
+            //Changes instructionsText to whatever instruction was inputted in the field in the inspector.
+            instructionsText.text = instructions;
         }
     }
 }

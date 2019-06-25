@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Pause : MonoBehaviour
 {
@@ -13,16 +14,19 @@ public class Pause : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject workBenchMenu;
     private GameObject player;
+    public TextMeshProUGUI inventory;
 
     EnableOrDisableScripts EODS;
     ToggleFlashlight TF;
     SearchObject SO;
+    Inventory inv;
 
     void Awake()
     {
         TF = GameObject.FindGameObjectWithTag("Player").GetComponent<ToggleFlashlight>();
         EODS = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<EnableOrDisableScripts>();
         SO = GameObject.FindGameObjectWithTag("Interact").GetComponent<SearchObject>();
+        inv = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -39,6 +43,20 @@ public class Pause : MonoBehaviour
                 UnPauseGame();
             }           
         }
+
+        inventory.text = "Pipebombs: " + inv.pipebombCount.ToString() + "\n" +
+                         "Gauze: " + inv.gauzeCount.ToString() + "\n" +
+                         "Ammo: " + inv.ammo.ToString() + "\n" +
+                         "Keys: " + inv.keysCount.ToString() + "\n" +
+                         "\n" +
+                         "Machete Parts: " + inv.macheteParts.ToString() + "\n" +
+                         "Pistol Parts: " + inv.pistolParts.ToString() + "\n" +
+                         "Key Fragments: " + inv.keyFragments.ToString() + "\n" +
+                         "\n" +
+                         "Gunpowder: " + inv.gunpowder.ToString() + "\n" +
+                         "Bullet Casings: " + inv.bulletCasings.ToString() + "\n" +
+                         "Fuses: " + inv.fuses.ToString() + "\n" +
+                         "Cloth: " + inv.cloth.ToString() + "\n";
     }
 
     void OnApplicationFocus(bool hasFocus)
@@ -107,11 +125,15 @@ public class Pause : MonoBehaviour
     public void GoToMainMenu()
     {
         UnPauseGame();
+        FindObjectOfType<AudioManager>().Stop("Walking");
+        FindObjectOfType<AudioManager>().Stop("Sneaking");
         SceneManager.LoadScene(0);
     }
     public void Retry()
     {
         UnPauseGame();
+        FindObjectOfType<AudioManager>().Stop("Walking");
+        FindObjectOfType<AudioManager>().Stop("Sneaking");
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 }

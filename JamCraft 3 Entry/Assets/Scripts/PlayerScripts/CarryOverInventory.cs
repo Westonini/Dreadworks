@@ -16,12 +16,6 @@ public class CarryOverInventory : MonoBehaviour
     [HideInInspector]
     public int carryOverPipebombCount = 0, carryOverGauzeCount = 0;
 
-    [HideInInspector]
-    public static bool levelStart;
-
-    SlotSelection SS;
-    Inventory inv;
-
     void Awake()
     {
         //DontDestroyOnLoad
@@ -38,15 +32,6 @@ public class CarryOverInventory : MonoBehaviour
 
     private void Update()
     {
-        //Get the SlotSelection and Inventory scripts with the start of each scene.
-        if (levelStart)
-        {
-            SS = GameObject.FindGameObjectWithTag("Player").GetComponent<SlotSelection>();
-            inv = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>();
-
-            levelStart = false;       
-        }
-
         //If the current scene is the Main Menu destroy this object.
         Scene currentScene = SceneManager.GetActiveScene();
 
@@ -55,35 +40,6 @@ public class CarryOverInventory : MonoBehaviour
         if (sceneName == "MainMenu")
         {
             Destroy(gameObject);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //Saved all the information on how much materials the player has and if they have certain items.
-        if (other.gameObject.tag == "Player")
-        {
-            carryOverHasMachete = SS.hasMachete;
-            carryOverHasPistol = SS.hasPistol;
-            carryOverHasPipebomb = SS.hasPipebomb;
-            carryOverHasGauze = SS.hasGauze;
-
-            carryOverPistolParts = inv.pistolParts;
-            carryOverMacheteParts = inv.macheteParts;
-            carryOverAmmo = inv.ammo;
-            carryOverBulletCasings = inv.bulletCasings;
-            carryOverGunpowder = inv.gunpowder;
-            carryOverFuses = inv.fuses;
-            carryOverCloth = inv.cloth;
-
-            carryOverPipebombCount = inv.pipebombCount;
-            carryOverGauzeCount = inv.gauzeCount;
-
-            //Change to next scene.
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
-            Collider collider = GetComponent<Collider>();
-            collider.enabled = false;
         }
     }
 }

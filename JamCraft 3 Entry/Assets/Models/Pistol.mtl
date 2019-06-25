@@ -1,24 +1,18 @@
 # Made using Asset Forge (www.assetforge.io) version 1.3 
 
-newmtl stone (Instance) (Instance)
+newmtl stone
 Ka 0.000000 0.000000 0.000000 
-Kd 0.3323343 0.3323343 0.3323343 
+Kd 0.332 0.332 0.332 
 Ks 0.330000 0.330000 0.330000 
-map_Kd Textures/stone (Instance) (Instance).png
-
-newmtl blade (Instance) (Instance)
-Ka 0.000000 0.000000 0.000000 
-Kd 0.109993 0.109993 0.109993 
-Ks 0.330000 0.330000 0.330000 
-map_Kd Textures/blade (Instance) (Instance).png
+map_Kd Textures/stone.png
 
 newmtl blade (Instance)
 Ka 0.000000 0.000000 0.000000 
-Kd 0.109993 0.109993 0.109993 
+Kd 0.11 0.11 0.11 
 Ks 0.330000 0.330000 0.330000 
 map_Kd Textures/blade (Instance).png
 
-newmtl glass (Instance) (Instance)
+newmtl glass
 Ka 0.000000 0.000000 0.000000 
 Kd 0 0 0 
 Ks 0.330000 0.330000 0.330000 

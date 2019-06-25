@@ -15,6 +15,8 @@ public class EnemyDetectionMovement : MonoBehaviour
     [HideInInspector]
     public bool isWithinDetectionRange = false;
 
+    private bool kinematicCooldown = false;
+
     Coroutine ChangeKinematicCoroutine;
 
     EnemyHealth EH;
@@ -33,6 +35,12 @@ public class EnemyDetectionMovement : MonoBehaviour
         if (isWithinDetectionRange == true || (EH.health > 0 && EH.health < EH.maxHealth))
         {          
             DetectedPlayer();
+        }
+
+        if (gameObject.GetComponent<Rigidbody>().isKinematic == false && !kinematicCooldown)
+        {
+            kinematicCooldown = true;
+            StartCoroutine(ChangeIsKinematic());
         }
     }
 
@@ -67,12 +75,8 @@ public class EnemyDetectionMovement : MonoBehaviour
     //Called in other scripts for when the enemy needs to get knocked back.
     public void Knockback(int knockback, GameObject hitby, bool reverseKnockbackDirection = false)
     {
-        if (ChangeKinematicCoroutine != null)
-        {
-            StopCoroutine(ChangeKinematicCoroutine);
-        }
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
-        ChangeKinematicCoroutine = StartCoroutine(ChangeIsKinematic());
         gameObject.GetComponent<NavMeshAgent>().velocity = Vector3.zero;
 
         Vector3 direction;
@@ -90,13 +94,12 @@ public class EnemyDetectionMovement : MonoBehaviour
 
     public IEnumerator ChangeIsKinematic()
     {
-        bool isKinematic = gameObject.GetComponent<Rigidbody>().isKinematic = false;
-
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.35f);
 
         if (this != null)
         {
-            isKinematic = true;
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            kinematicCooldown = false;
         }
 
     }

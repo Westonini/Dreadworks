@@ -1,0 +1,49 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+newmtl _defaultMat (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.549 0.549 0.549 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/_defaultMat (Instance).png
+
+newmtl wood (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.882 0.579 0.402 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/wood (Instance).png
+
+newmtl wood (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.882 0.579 0.402 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/wood (Instance) (Instance).png
+
+newmtl _defaultMat (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.549 0.549 0.549 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/_defaultMat (Instance) (Instance).png
+
+newmtl customMaterial2 (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0 0 0 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl wood (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.882 0.579 0.402 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/wood (Instance) (Instance) (Instance).png
+
+newmtl _defaultMat (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.549 0.549 0.549 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/_defaultMat (Instance) (Instance) (Instance).png
+
+newmtl wood (Instance) (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.882 0.579 0.402 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/wood (Instance) (Instance) (Instance) (Instance).png
+
