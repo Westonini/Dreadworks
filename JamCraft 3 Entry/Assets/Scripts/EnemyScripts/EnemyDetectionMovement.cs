@@ -27,7 +27,6 @@ public class EnemyDetectionMovement : MonoBehaviour
         agent = gameObject.GetComponent<NavMeshAgent>();       
     }
 
-
     // Update is called once per frame
     void Update()
     {

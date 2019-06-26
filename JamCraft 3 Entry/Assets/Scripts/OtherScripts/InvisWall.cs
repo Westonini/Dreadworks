@@ -37,13 +37,15 @@ public class InvisWall : MonoBehaviour
         {
             ClearGoalText();
         }
-        if (craftPistolGoal && SS.hasPistol)
+        if (craftPistolGoal && SS.hasPistol && !textCleared)
         {
             ClearGoalText();
         }
-        if (craftKeyGoal && SS.hasKey)
+        if (craftKeyGoal && SS.hasKey && !textCleared)
         {
-            ClearGoalText();
+            invisCollider.enabled = false;
+            goalsText.text = "- Use Key to unlock the locked door";
+            textCleared = true;
         }
     }
 

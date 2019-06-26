@@ -87,6 +87,9 @@ public class ItemProvider : MonoBehaviour
             itemsToGive.Add("Gauze");
             itemsToGive.Add("Cloth");
             itemsToGive.Add("KeyFragments");
+            itemsToGive.Add("KeyFragments");
+            itemsToGive.Add("KeyFragments");
+            itemsToGive.Add("KeyFragments");
         }
 
         if (randomizeDrops)
