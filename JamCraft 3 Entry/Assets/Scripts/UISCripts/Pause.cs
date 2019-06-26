@@ -127,6 +127,9 @@ public class Pause : MonoBehaviour
         UnPauseGame();
         FindObjectOfType<AudioManager>().Stop("Walking");
         FindObjectOfType<AudioManager>().Stop("Sneaking");
+        FindObjectOfType<AudioManager>().Stop("BombSizzle");
+        FindObjectOfType<AudioManager>().Stop("Heartbeat");
+        FindObjectOfType<AudioManager>().Stop("HeavyBreathing");
         SceneManager.LoadScene(0);
     }
     public void Retry()
@@ -134,6 +137,9 @@ public class Pause : MonoBehaviour
         UnPauseGame();
         FindObjectOfType<AudioManager>().Stop("Walking");
         FindObjectOfType<AudioManager>().Stop("Sneaking");
+        FindObjectOfType<AudioManager>().Stop("BombSizzle");
+        FindObjectOfType<AudioManager>().Stop("Heartbeat");
+        FindObjectOfType<AudioManager>().Stop("HeavyBreathing");
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 }

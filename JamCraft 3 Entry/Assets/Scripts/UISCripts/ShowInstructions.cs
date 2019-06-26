@@ -52,6 +52,9 @@ public class ShowInstructions : MonoBehaviour
             {
                 invisWall.enabled = true;
             }
+
+            //Disable collider when player touches it
+            _collider.enabled = false;
         }
         else if (other.gameObject.tag == "Interact" && isAlsoAnInvisWall)
         {

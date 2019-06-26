@@ -14,6 +14,7 @@ public class InvisWall : MonoBehaviour
     public bool collectMachetePartsGoal = false;
     public bool craftMacheteGoal = false;
     public bool craftPistolGoal = false;
+    public bool craftKeyGoal = false;
 
     Inventory inv;
     SlotSelection SS;
@@ -30,21 +31,26 @@ public class InvisWall : MonoBehaviour
     {
         if (collectMachetePartsGoal && inv.macheteParts == 3 && !textCleared)
         {
-            invisCollider.enabled = false;
-            goalsText.text = "";
-            textCleared = true;
+            ClearGoalText();
         }
         if (craftMacheteGoal && SS.hasMachete && !textCleared)
         {
-            invisCollider.enabled = false;
-            goalsText.text = "";
-            textCleared = true;
+            ClearGoalText();
         }
         if (craftPistolGoal && SS.hasPistol)
         {
-            invisCollider.enabled = false;
-            goalsText.text = "";
-            textCleared = true;
+            ClearGoalText();
         }
+        if (craftKeyGoal && SS.hasKey)
+        {
+            ClearGoalText();
+        }
+    }
+
+    void ClearGoalText()
+    {
+        invisCollider.enabled = false;
+        goalsText.text = "";
+        textCleared = true;
     }
 }

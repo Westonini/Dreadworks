@@ -1,0 +1,116 @@
+# Made using Asset Forge (www.assetforge.io) version 1.3 
+
+newmtl _defaultMat (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.39 0.39 0.39 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/_defaultMat (Instance).png
+
+newmtl customMaterial1 (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.45 0.45 0.45 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/customMaterial1 (Instance).png
+
+newmtl _defaultMat (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.39 0.39 0.39 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/_defaultMat (Instance) (Instance).png
+
+newmtl Light_Grey (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 1 1 1 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/Light_Grey (Instance) (Instance).png
+
+newmtl Green_Stone_-_Dark (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.64 0 0 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/Green_Stone_-_Dark (Instance).png
+
+newmtl Green_Stone_-_Dark (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.64 0 0 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/Green_Stone_-_Dark (Instance) (Instance).png
+
+newmtl Wood_Light (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.737 0.631 0.463 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/Wood_Light (Instance).png
+
+newmtl Wood_Dark (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.518 0.42 0.333 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Wood_Medium (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.628 0.526 0.396 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/Wood_Medium (Instance).png
+
+newmtl Wood_Light (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.737 0.631 0.463 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/Wood_Light (Instance) (Instance).png
+
+newmtl Wood_Medium (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.628 0.526 0.396 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/Wood_Medium (Instance) (Instance).png
+
+newmtl Wood_Darker (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.384 0.314 0.251 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Burlap (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.726 0.643 0.522 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Straw (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.882 0.784 0.526 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Straw (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.882 0.784 0.526 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Burlap (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.726 0.643 0.522 
+Ks 0.330000 0.330000 0.330000 
+
+newmtl Wood_Light (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.737 0.631 0.463 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/Wood_Light (Instance) (Instance) (Instance).png
+
+newmtl Wood_Light (Instance) (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.737 0.631 0.463 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/Wood_Light (Instance) (Instance) (Instance) (Instance).png
+
+newmtl Wood_Light (Instance) (Instance) (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.737 0.631 0.463 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/Wood_Light (Instance) (Instance) (Instance) (Instance) (Instance).png
+
+newmtl Wood_Light (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+Ka 0.000000 0.000000 0.000000 
+Kd 0.737 0.631 0.463 
+Ks 0.330000 0.330000 0.330000 
+map_Kd Textures/Wood_Light (Instance) (Instance) (Instance) (Instance) (Instance) (Instance).png
+

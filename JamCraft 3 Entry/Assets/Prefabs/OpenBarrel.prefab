@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2930841359480587563}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: OpenBarrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 5368976805344281280}
   - component: {fileID: 3720198949949599280}
   - component: {fileID: 7914729444742613214}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}

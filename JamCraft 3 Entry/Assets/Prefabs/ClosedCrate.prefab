@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2374842369396184215}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ClosedCrate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4817512155679986556}
   - component: {fileID: 4321660145495179148}
   - component: {fileID: 3581483092346929253}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -49,6 +49,9 @@ public class LevelTransition : MonoBehaviour
                 pause.UnPauseGame();
                 FindObjectOfType<AudioManager>().Stop("Walking");
                 FindObjectOfType<AudioManager>().Stop("Sneaking");
+                FindObjectOfType<AudioManager>().Stop("BombSizzle");
+                FindObjectOfType<AudioManager>().Stop("Heartbeat");
+                FindObjectOfType<AudioManager>().Stop("HeavyBreathing");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             if (goToMainMenu)
@@ -57,6 +60,9 @@ public class LevelTransition : MonoBehaviour
                 pause.UnPauseGame();
                 FindObjectOfType<AudioManager>().Stop("Walking");
                 FindObjectOfType<AudioManager>().Stop("Sneaking");
+                FindObjectOfType<AudioManager>().Stop("BombSizzle");
+                FindObjectOfType<AudioManager>().Stop("Heartbeat");
+                FindObjectOfType<AudioManager>().Stop("HeavyBreathing");
                 SceneManager.LoadScene(0);
             }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3576716311473105026}
   - component: {fileID: 3576716311473105023}
   - component: {fileID: 3576716311473105022}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LockedDoor
   m_TagString: LockedDoor
   m_Icon: {fileID: 0}
@@ -71,16 +71,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3576716311473105026}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 2db4fa63272939240920fce683b25e83,
-        type: 3}
-      propertyPath: m_Name
-      value: LockedDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 2db4fa63272939240920fce683b25e83,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2db4fa63272939240920fce683b25e83,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -150,6 +140,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 2db4fa63272939240920fce683b25e83,
+        type: 3}
+      propertyPath: m_Name
+      value: LockedDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 2db4fa63272939240920fce683b25e83,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 2db4fa63272939240920fce683b25e83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: 2db4fa63272939240920fce683b25e83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2db4fa63272939240920fce683b25e83, type: 3}
@@ -166,16 +176,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3576716311473105026}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 70acc3eabf1dd1b49b2e1479e726ec85,
-        type: 3}
-      propertyPath: m_Name
-      value: UnlockedDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 70acc3eabf1dd1b49b2e1479e726ec85,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 70acc3eabf1dd1b49b2e1479e726ec85,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -246,6 +246,26 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 70acc3eabf1dd1b49b2e1479e726ec85,
+        type: 3}
+      propertyPath: m_Name
+      value: UnlockedDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 70acc3eabf1dd1b49b2e1479e726ec85,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 70acc3eabf1dd1b49b2e1479e726ec85,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: 70acc3eabf1dd1b49b2e1479e726ec85,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70acc3eabf1dd1b49b2e1479e726ec85, type: 3}
 --- !u!4 &8419963590618901532 stripped
@@ -261,16 +281,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3576716311473105026}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: d856badbc76e8a84c985d0a156f78d1b,
-        type: 3}
-      propertyPath: m_Name
-      value: UnlockedDoorOpened
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: d856badbc76e8a84c985d0a156f78d1b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d856badbc76e8a84c985d0a156f78d1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -340,6 +350,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d856badbc76e8a84c985d0a156f78d1b,
+        type: 3}
+      propertyPath: m_Name
+      value: UnlockedDoorOpened
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d856badbc76e8a84c985d0a156f78d1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d856badbc76e8a84c985d0a156f78d1b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: d856badbc76e8a84c985d0a156f78d1b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d856badbc76e8a84c985d0a156f78d1b, type: 3}
